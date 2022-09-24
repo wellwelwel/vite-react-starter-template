@@ -1,5 +1,5 @@
 <h2 align="center">Basic Vite & React Starter Template</h2>
-<p align="center">😉 This is just a personal template to start a ReactJS Project</p>
+<p align="center">😉 This is just a <b>personal</b> template to start a ReactJS Project</p>
 
 ### 🚀 Playground
 
@@ -15,13 +15,21 @@
    -  `npm run build`
 
 -  Testing Routes in an Apache Server
+
    ```apache
       Options -MultiViews
       RewriteEngine On
       RewriteCond %{REQUEST_FILENAME} !-f
       RewriteRule ^ index.html [QSA,L]
    ```
+
+-  Libraries:
+
+   -  [React](https://reactjs.org/)
+   -  [Vite](https://vitejs.dev/)
+
 -  Plug-ins:
+
    -  [Sass](https://github.com/sass/sass)
    -  [PostCSS](https://github.com/postcss)
    -  [Autoprefixer](https://github.com/postcss/autoprefixer)
