@@ -5,7 +5,9 @@ const Errors = () => {
    return (
       <main id='error'>
          <h2>🤔 I don't know what you want...</h2>
-         <Link to='/'>⏪ Back off, man! ✋🏻</Link>
+         <Link to='/' replace>
+            ⏪ Back off, man! ✋🏻
+         </Link>
       </main>
    );
 };

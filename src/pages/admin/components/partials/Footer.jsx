@@ -13,7 +13,7 @@ const Header = () => {
    );
 
    useEffect(() => {
-      (() => request('https://jsonplaceholder.typicode.com/posts/'))();
+      (() => request('https://jsonplaceholder.typicode.com/posts/1'))();
    }, [request]);
 
    if (error) return render(`Error | ${error.message} 😔`);
