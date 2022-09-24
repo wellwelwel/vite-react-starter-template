@@ -11,8 +11,8 @@ const conteiner = document.getElementById('root');
 const root = createRoot(conteiner);
 
 // Routes
-import HomeRoutes from './routes/Home';
-import AdminRoutes from './routes/Admin';
+import HomeRoutes from './pages/home/Routes';
+import AdminRoutes from './pages/admin/Routes';
 
 root.render(
    <React.StrictMode>

@@ -1,10 +1,10 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
 
-import HomeLayout from '../pages/home/Layout';
-import Home from '../pages/home/components/Home';
-import About from '../pages/home/components/About';
-import Errors from '../pages/home/components/Errors';
+import HomeLayout from './Layout';
+import Home from './components/Home';
+import About from './components/About';
+import Errors from './components/Errors';
 
 const HomeRoutes = () => {
    return (
