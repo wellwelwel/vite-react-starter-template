@@ -11,7 +11,7 @@
 -  Commands
 
    -  `npm run init`
-   -  `npm run start`
+   -  `npm start`
    -  `npm run build`
 
 -  Testing Routes in an Apache Server
