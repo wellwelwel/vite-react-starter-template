@@ -13,13 +13,13 @@ const Header = () => {
    );
 
    useEffect(() => {
-      (() => request('https://jsonplaceholder.typicode.com/todos/'))();
+      (() => request('https://jsonplaceholder.typicode.com/posts/'))();
    }, [request]);
 
    if (error) return render(`Error | ${error.message} 😔`);
    if (loading) return render('Loading...');
    if (data) {
-      // console.table(data);
+      console.table(data);
       return render('Sucess ✅');
    }
 
