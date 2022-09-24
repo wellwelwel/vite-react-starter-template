@@ -3,7 +3,7 @@
 
 ### 🚀 Playground
 
--  You can see it in action at: [CodeSandbox](https://codesandbox.io/p/github/wellwelwel/vite-react-starter-template?create=true)
+-  You can see it in action at: [CodeSandbox](https://5w45r9-5173.preview.csb.app/)
 <hr />
 
 ### 📝 Notes
