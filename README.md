@@ -3,7 +3,7 @@
 
 ### 🚀 Playground
 
--  You can see it in action at: [CodeSandbox](https://codesandbox.io/)
+-  You can see it in action at: [CodeSandbox](https://codesandbox.io/p/github/wellwelwel/vite-react-starter-template?create=true)
 <hr />
 
 ### 📝 Notes
@@ -39,6 +39,6 @@
 
 ### Credits
 
-| Contributors | GitHub                                                                            |
-| ------------ | --------------------------------------------------------------------------------- |
-| Author       | [![wellwelwel](/.github/assets/images/author.svg)](https://github.com/wellwelwel) |
+| Contributors | GitHub                                                                             |
+| ------------ | ---------------------------------------------------------------------------------- |
+| Author       | [![wellwelwel](./.github/assets/images/author.svg)](https://github.com/wellwelwel) |
