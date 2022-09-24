@@ -3,7 +3,7 @@
 
 ### 🚀 Playground
 
--  You can see it in action at: [CodeSandbox](https://5w45r9-5173.preview.csb.app/)
+-  You can see it in action at: [StackBlitz](https://stackblitz.com/edit/node-gkypjp)
 <hr />
 
 ### 📝 Notes
