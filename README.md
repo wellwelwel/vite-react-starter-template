@@ -23,9 +23,9 @@
    ```
 -  Plug-ins:
    -  [Sass](https://github.com/sass/sass)
-   -  [Postcss](https://github.com/postcss)
+   -  [PostCSS](https://github.com/postcss)
    -  [Autoprefixer](https://github.com/postcss/autoprefixer)
-   -  [CSS Nano](https://github.com/cssnano/cssnano)
+   -  [cssnano](https://github.com/cssnano/cssnano)
 
 <hr />
 
