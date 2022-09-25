@@ -66,6 +66,8 @@
    /**
     * This function creates any custom element in head
     * Interesting to use for advanced properties, SEO, etc.
+    * @param {array} attributes is optional
+    * @param {string} textContent is optional
     **/
    head.createElement({
       element: 'link',
