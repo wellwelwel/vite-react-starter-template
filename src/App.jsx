@@ -1,10 +1,13 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter as Router, Routes } from 'react-router-dom';
+import { disableReactDevTools } from '@fvilers/disable-react-devtools';
 
 // Assets
 // Global styles (Reset CSS, Fonts, Root Variables, etc.)
 import './assets/scss/main.scss';
+
+if (process.env.NODE_ENV === 'production') disableReactDevTools();
 
 // Create root
 const conteiner = document.getElementById('root');
