@@ -8,6 +8,7 @@
  **/
 
 export const s = (element) => document.querySelector(element);
-export const sEl = (baseElement, element) => baseElement.querySelector(element);
 export const sAll = (element) => document.querySelectorAll(element);
-export const sElAll = (baseElement, element) => baseElement.querySelectorAll(element);
+
+if (!Node.prototype.hasOwnProperty('s')) Node.prototype.s = s;
+if (!Node.prototype.hasOwnProperty('sAll')) Node.prototype.sAll = sAll;

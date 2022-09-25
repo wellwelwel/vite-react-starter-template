@@ -1,4 +1,4 @@
-import { s, sEl, sAll, sElAll } from './selectors';
+import { s } from './selectors';
 
 export const title = (text) => {
    const current = s('head title');
