@@ -141,3 +141,7 @@ export const link = (rel, href) => {
       ],
    });
 };
+
+const head = { title, favicon, faviconBase64, meta, link };
+
+export default head;
