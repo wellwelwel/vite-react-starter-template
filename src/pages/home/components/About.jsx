@@ -3,6 +3,7 @@ import * as head from '../../../helpers/head';
 
 const About = () => {
    head.title('About | React Basic Starter');
+   head.meta('description', 'An about description');
 
    return (
       <main id='about'>

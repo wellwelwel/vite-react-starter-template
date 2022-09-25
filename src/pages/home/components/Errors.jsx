@@ -4,6 +4,7 @@ import * as head from '../../../helpers/head';
 
 const Errors = () => {
    head.title('404 | React Basic Starter');
+   head.meta('description', 'A 404 description');
 
    return (
       <main id='error'>

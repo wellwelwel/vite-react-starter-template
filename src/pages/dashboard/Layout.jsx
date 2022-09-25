@@ -12,8 +12,8 @@ import Header from './components/partials/Header';
 import Footer from './components/partials/Footer';
 
 const DashboardLayout = () => {
-   head.themeColor('#2e006a');
    head.favicon(favicon);
+   head.meta('theme-color', '#2e006a');
    s('#root').classList = 'dashboard';
 
    return (

@@ -11,7 +11,7 @@ import Header from './components/partials/Header';
 import Footer from './components/partials/Footer';
 
 const HomeLayout = () => {
-   head.themeColor('#6c46bf');
+   head.meta('theme-color', '#6c46bf');
    head.favicon(favicon);
    document.querySelector('#root').classList = 'home';
 

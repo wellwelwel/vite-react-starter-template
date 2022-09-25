@@ -1,5 +1,16 @@
 import { s } from './selectors';
 
+const mimes = {
+   gif: 'image/gif',
+   ico: 'image/x-icon',
+   icon: 'image/x-icon',
+   jpeg: 'image/jpeg',
+   jpg: 'image/jpeg',
+   png: 'image/png',
+   svg: 'image/svg+xml',
+   webp: 'image/webp',
+};
+
 const createElement = (options = { element: 'meta', attributes: [], textContext }) => {
    const element = document.createElement(options.element);
 
@@ -17,56 +28,21 @@ export const title = (text) => {
    // If already exists
    if (current) {
       current.textContent = text;
-      return true;
+      return;
    }
 
    createElement({ element: 'title', textContext: text });
-   return true;
-};
-
-export const themeColor = (color) => {
-   const current = s('head meta[name="theme-color"]');
-
-   // If already exists
-   if (current) {
-      current.content = color;
-      return true;
-   }
-
-   createElement({
-      element: 'meta',
-      attributes: [
-         {
-            name: 'name',
-            value: 'theme-color',
-         },
-         {
-            name: 'content',
-            value: color,
-         },
-      ],
-   });
-   return true;
 };
 
 export const favicon = (importedIcon) => {
-   const mimes = {
-      gif: 'image/gif',
-      ico: 'image/x-icon',
-      icon: 'image/x-icon',
-      jpeg: 'image/jpeg',
-      jpg: 'image/jpeg',
-      png: 'image/png',
-      svg: 'image/svg+xml',
-      webp: 'image/webp',
-   };
    const current = s('head link[rel="icon"]');
    const type = mimes[importedIcon.split('.').pop().toLowerCase()];
 
+   // If already exists
    if (current) {
       current.href = importedIcon;
       current.type = type;
-      return true;
+      return;
    }
 
    createElement({
@@ -86,5 +62,82 @@ export const favicon = (importedIcon) => {
          },
       ],
    });
-   return true;
+};
+
+export const faviconBase64 = (base64) => {
+   const current = s('head link[rel="icon"]');
+   const type = mimes[base64.match(/image\/(.+);/)[1].toLowerCase()];
+
+   // If already exists
+   if (current) {
+      current.href = base64;
+      current.type = type;
+      return;
+   }
+
+   createElement({
+      element: 'link',
+      attributes: [
+         {
+            name: 'rel',
+            value: 'icon',
+         },
+         {
+            name: 'href',
+            value: base64,
+         },
+         {
+            name: 'type',
+            value: type,
+         },
+      ],
+   });
+};
+
+export const meta = (name, content) => {
+   const current = s(`head meta[name="${name}"]`);
+
+   // If already exists
+   if (current) {
+      current.content = content;
+      return;
+   }
+
+   createElement({
+      element: 'meta',
+      attributes: [
+         {
+            name: 'name',
+            value: name,
+         },
+         {
+            name: 'content',
+            value: content,
+         },
+      ],
+   });
+};
+
+export const link = (rel, href) => {
+   const current = s(`head link[rel="${rel}"]`);
+
+   // If already exists
+   if (current) {
+      current.href = content;
+      return;
+   }
+
+   createElement({
+      element: 'link',
+      attributes: [
+         {
+            name: 'rel',
+            value: rel,
+         },
+         {
+            name: 'href',
+            value: href,
+         },
+      ],
+   });
 };
