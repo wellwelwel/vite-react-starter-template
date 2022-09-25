@@ -64,7 +64,8 @@ body {
                transition: border-color 0.25s;
             }
 
-            &:hover {
+            &:hover,
+            &.active {
                &::after {
                   border-color: #afcbff74;
                }
