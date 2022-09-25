@@ -4,15 +4,18 @@
 ### 🚀 Playground
 
 -  You can see it in action at: [StackBlitz](https://stackblitz.com/edit/node-gkypjp)
+
 <hr />
 
 ### 📝 Notes
 
 -  Commands
 
-   -  `npm run init`
-   -  `npm start`
-   -  `npm run build`
+   -  `npm i`, then:
+      -  `npm start` to start a Vite localhost
+      -  `npm run build` to build the project
+      -  `npm run clean` if you want work with a empty Home 🏠
+         -  Maybe, this command doesn't work in some Windows versions
 
 -  Testing Routes in an Apache Server
 
@@ -22,6 +25,8 @@
       RewriteCond %{REQUEST_FILENAME} !-f
       RewriteRule ^ index.html [QSA,L]
    ```
+
+<hr />
 
 -  Libraries:
 

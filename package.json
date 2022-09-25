@@ -5,13 +5,12 @@
    "version": "0.0.0",
    "type": "module",
    "scripts": {
-      "init": "rm -rf .git .github README.md; npm i;",
-      "postinit": "npm run update;",
       "prestart": "npm run update;",
-      "start": "vite",
+      "start": "vite;",
       "prebuild": "npm run update;",
-      "build": "vite build",
-      "update": "npx ncu -u; npm i;"
+      "build": "vite build;",
+      "update": "npx ncu -u; npm i;",
+      "clean": "sh ./clean.sh;"
    },
    "dependencies": {
       "react": "^18.2.0",
