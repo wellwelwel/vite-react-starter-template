@@ -84,7 +84,13 @@ body {
             &:hover,
             &.active {
                &::after {
-                  border-color: #afcbff74;
+                  border-color: #8f86e2;
+               }
+            }
+
+            &.active {
+               &::after {
+                  border-bottom-style: dashed;
                }
             }
          }
