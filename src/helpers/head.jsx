@@ -21,7 +21,6 @@ export const title = (text) => {
    }
 
    createElement({ element: 'title', textContext: text });
-
    return true;
 };
 
@@ -47,7 +46,6 @@ export const themeColor = (color) => {
          },
       ],
    });
-
    return true;
 };
 
@@ -88,4 +86,5 @@ export const favicon = (importedIcon) => {
          },
       ],
    });
+   return true;
 };
