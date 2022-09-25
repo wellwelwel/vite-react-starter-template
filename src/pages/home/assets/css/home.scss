@@ -47,8 +47,11 @@ body {
          }
 
          &#error {
+            h1 {
+               color: #c9c1ff;
+            }
             a {
-               margin-top: 15px;
+               margin-top: 25px;
                padding: 15px 30px;
                border-radius: 5px;
                background-color: #fff;
