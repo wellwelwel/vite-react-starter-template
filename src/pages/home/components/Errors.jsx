@@ -1,7 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import * as head from '../../../helpers/head';
 
 const Errors = () => {
+   head.title('404 | React Basic Starter');
+
    return (
       <main id='error'>
          <h1>404</h1>

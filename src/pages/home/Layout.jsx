@@ -1,11 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Outlet } from 'react-router-dom';
+import * as head from '../../helpers/head';
 
 // Components
 import Header from './components/partials/Header';
 import Footer from './components/partials/Footer';
 
 const HomeLayout = () => {
+   head.themeColor('#6c46bf');
    document.querySelector('#root').classList = 'home';
 
    return (
