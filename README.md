@@ -30,91 +30,89 @@
 
 ### 💡 Helpers
 
-#### Selectors
+   #### Selectors
 
--  An example of using:
+   -  An example of using:
 
-   ```jsx
-   import { s, sAll } from '../helpers/selectors';
+      ```jsx
+      import { s, sAll } from '../helpers/selectors';
 
-   s('#id');
-   sAll('.class');
-   s('#id').s('.child');
-   s('#id').sAll('.childs');
-   ```
+      s('#id');
+      sAll('.class');
+      s('#id').s('.child');
+      s('#id').sAll('.childs');
+      ```
 
-   -  This helper uses native Javascript (browser)
+   #### Head
 
-#### Head
+   -  An example of using:
 
--  An example of using:
+      ```jsx
+      import head from '../helpers/head';
+      import { favicon } from '../favicon.svg';
 
-   ```jsx
-   import head from '../helpers/head';
-   import { favicon } from '../favicon.svg';
+      /**
+       * These functions check if an element already exists in head
+      * If exists, update element atribute, otherwise creates the element in head
+      **/
+      head.title('Home');
+      head.meta('theme-color', '#6c46bf');
+      head.link('canonical', 'https://site.com/');
+      head.favicon(favicon);
+      head.faviconBase64('data:image/png;base64,iVBO0KGN...ErkJg==');
 
-   /**
-    * These functions check if an element already exists in head
-    * If exists, update element atribute, otherwise creates the element in head
-    **/
-   head.title('Home');
-   head.meta('theme-color', '#6c46bf');
-   head.link('canonical', 'https://site.com/');
-   head.favicon(favicon);
-   head.faviconBase64('data:image/png;base64,iVBO0KGN...ErkJg==');
+      /**
+       * This function creates any custom element in head
+      * Interesting to use for advanced properties, SEO, etc.
+      * @param {array} attributes is optional
+      * @param {string} textContent is optional
+      **/
+      head.createElement({
+         element: 'link',
+         attributes: [
+            {
+               name: 'rel',
+               value: 'alternate',
+            },
+            {
+               name: 'hreflang',
+               value: 'pt-BR',
+            },
+            {
+               name: 'href',
+               value: '/langs/pt-BR',
+            },
+         ],
+         textContent: 'Brazilian Portuguese',
+      });
+      ```
 
-   /**
-    * This function creates any custom element in head
-    * Interesting to use for advanced properties, SEO, etc.
-    * @param {array} attributes is optional
-    * @param {string} textContent is optional
-    **/
-   head.createElement({
-      element: 'link',
-      attributes: [
-         {
-            name: 'rel',
-            value: 'alternate',
-         },
-         {
-            name: 'hreflang',
-            value: 'pt-BR',
-         },
-         {
-            name: 'href',
-            value: '/langs/pt-BR',
-         },
-      ],
-      textContent: 'Brazilian Portuguese',
-   });
-   ```
+<hr />
 
-   -  This helper uses native Javascript (browser)
+### ⚛️ Hooks
 
-#### useFetch
+   #### useFetch
 
--  An example of using:
+   -  An example of using:
 
-   ```jsx
-   import useFetch from '../helpers/useFetch';
+      ```jsx
+      import useFetch from '../helpers/useFetch';
 
-   const Element = () => {
-      const { request, loading, data, error } = useFetch();
-      const render = (children) => <span>Request Test: {children || null}</span>;
+      const Element = () => {
+         const { request, loading, data, error } = useFetch();
+         const render = (children) => <span>Request Test: {children || null}</span>;
 
-      useEffect(() => {
-         (() => request('https://jsonplaceholder.typicode.com/posts/'))();
-      }, [request]);
+         useEffect(() => {
+            (() => request('https://jsonplaceholder.typicode.com/posts/'))();
+         }, [request]);
 
-      if (error) return render(`Error | ${error.message} 😔`);
-      if (loading) return render('Loading...');
-      if (data) return render('Success ✅');
+         if (error) return render(`Error | ${error.message} 😔`);
+         if (loading) return render('Loading...');
+         if (data) return render('Success ✅');
 
-      return render();
-   };
-   ```
-
-   -  This helper is a React Custom Hook
+         return render();
+      };
+      ```
 
 <hr />
 
