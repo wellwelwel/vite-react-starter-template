@@ -91,28 +91,31 @@
 
 ### ⚛️ Hooks
 
--  #### useFetch
+<details>
+   <summary>useFetch</summary>
 
-   -  An example of using:
+-  An example of using:
 
-      ```jsx
-      import useFetch from '../helpers/useFetch';
+   ```jsx
+   import useFetch from '../helpers/useFetch';
 
-      const Element = () => {
-         const { request, loading, data, error } = useFetch();
-         const render = (children) => <span>Request Test: {children || null}</span>;
+   const Element = () => {
+      const { request, loading, data, error } = useFetch();
+      const render = (children) => <span>Request Test: {children || null}</span>;
 
-         useEffect(() => {
-            (() => request('https://jsonplaceholder.typicode.com/posts/'))();
-         }, [request]);
+      useEffect(() => {
+         (() => request('https://jsonplaceholder.typicode.com/posts/'))();
+      }, [request]);
 
-         if (error) return render(`Error | ${error.message} 😔`);
-         if (loading) return render('Loading...');
-         if (data) return render('Success ✅');
+      if (error) return render(`Error | ${error.message} 😔`);
+      if (loading) return render('Loading...');
+      if (data) return render('Success ✅');
 
-         return render();
-      };
-      ```
+      return render();
+   };
+   ```
+
+</details>
 
 <hr />
 
