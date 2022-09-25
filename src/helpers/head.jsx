@@ -11,7 +11,7 @@ const mimes = {
    webp: 'image/webp',
 };
 
-const createElement = (options = { element: 'meta', attributes: [], textContext }) => {
+export const createElement = (options = { element: 'meta', attributes: [], textContext }) => {
    const element = document.createElement(options.element);
 
    options?.attributes &&
@@ -142,6 +142,6 @@ export const link = (rel, href) => {
    });
 };
 
-const head = { title, favicon, faviconBase64, meta, link };
+const head = { title, favicon, faviconBase64, meta, link, createElement };
 
 export default head;
