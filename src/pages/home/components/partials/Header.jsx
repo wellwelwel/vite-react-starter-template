@@ -15,7 +15,7 @@ const Header = () => {
 
    if (error) return render(`Error | ${error.message} 😔`);
    if (loading) return render('Loading...');
-   if (data) return render('Sucess ✅');
+   if (data) return render('Success ✅');
 
    return render();
 };
