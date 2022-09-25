@@ -2,6 +2,9 @@ import React from 'react';
 import { Outlet } from 'react-router-dom';
 import * as head from '../../helpers/head';
 
+// Assets
+import './assets/css/styles.scss';
+
 // Components
 import Header from './components/partials/Header';
 import Footer from './components/partials/Footer';

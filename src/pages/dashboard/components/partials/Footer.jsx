@@ -1,9 +1,6 @@
 import React, { useEffect } from 'react';
 import useFetch from '../../../../helpers/useFetch';
 
-// Assets
-import '../../assets/css/admin.scss';
-
 const Header = () => {
    const { request, loading, data, error } = useFetch();
    const render = (children) => (

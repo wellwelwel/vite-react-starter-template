@@ -1,7 +1,7 @@
 @import '../../../../assets/scss/imports/mixins';
 
 body {
-   #root.admin {
+   #root.dashboard {
       @include flex(column, center, center);
 
       & > * {

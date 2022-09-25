@@ -12,14 +12,14 @@ const root = createRoot(conteiner);
 
 // Routes
 import HomeRoutes from './pages/home/Routes';
-import AdminRoutes from './pages/admin/Routes';
+import DashboardRoutes from './pages/dashboard/Routes';
 
 root.render(
    <React.StrictMode>
       <Router>
          <Routes>
             {HomeRoutes()}
-            {AdminRoutes()}
+            {DashboardRoutes()}
          </Routes>
       </Router>
    </React.StrictMode>

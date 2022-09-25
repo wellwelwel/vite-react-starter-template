@@ -1,14 +1,14 @@
 import React from 'react';
 import * as head from '../../../helpers/head';
 
-const Admin = () => {
-   head.title('Admin | React Basic Starter');
+const Dashboard = () => {
+   head.title('Dashboard | React Basic Starter');
 
    return (
-      <main id='admin'>
+      <main id='dashboard'>
          <h2>🪐 This is an alternative route</h2>
       </main>
    );
 };
 
-export default Admin;
+export default Dashboard;
