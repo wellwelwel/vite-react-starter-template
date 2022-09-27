@@ -138,7 +138,10 @@
    import useFetch from '../hooks/useFetch';
 
    () => {
-      const axiosCreate = { baseURL: 'https://jsonplaceholder.typicode.com', timeout: 10000 };
+      const axiosCreate = {
+         baseURL: 'https://jsonplaceholder.typicode.com',
+         timeout: 10000,
+      };
       const { request, isFetching, data, error } = useFetch(axiosCreate);
 
       useEffect(() => {
