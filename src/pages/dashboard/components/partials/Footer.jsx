@@ -1,23 +1,22 @@
 import React, { useEffect } from 'react';
 import useFetch from '../../../../hooks/useFetch';
 
-const Header = () => {
-   const { request, loading, data, error } = useFetch();
-   const render = (children) => (
-      <header>
-         <span>Request Test: {children || null}</span>
-      </header>
-   );
+const Footer = () => {
+   const { request, isFetching, data, error } = useFetch();
 
    useEffect(() => {
-      (() => request('https://jsonplaceholder.typicode.com/posts/1'))();
-   }, [request]);
+      (() => request('https://jsonplaceholder.typicode.com/posts/2'))();
+   }, []);
 
-   if (error) return render(`Error | ${error.message} 😔`);
-   if (loading) return render('Loading...');
-   if (data) return render('Success ✅');
-
-   return render();
+   return (
+      <footer>
+         <span>
+            {isFetching && 'Loading...'}
+            {error && `${error.message} 😔`}
+            {data && 'Success ✅'}
+         </span>
+      </footer>
+   );
 };
 
-export default Header;
+export default Footer;

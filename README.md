@@ -87,35 +87,85 @@
       });
       ```
 
+-  #### setTime
+
+   -  An example of using:
+
+      ```jsx
+      import setTime from '../helpers/setTime';
+
+      setTime(1000); // 1000
+      setTime('1s'); // 1000
+      setTime('1m'); // 60000
+      setTime('1h'); // 3600000
+      ```
+
 <hr />
 
 ### ⚛️ Hooks
 
-<details>
-   <summary>useFetch</summary>
+#### useFetch (with [Axios](https://axios-http.com/ptbr/docs/api_intro))
 
--  An example of using:
+-  A simple example of using:
 
    ```jsx
-   import useFetch from '../helpers/useFetch';
+   import useFetch from '../hooks/useFetch';
 
-   const Element = () => {
-      const { request, loading, data, error } = useFetch();
-      const render = (children) => <span>Request Test: {children || null}</span>;
+   () => {
+      const { request, isFetching, data, error } = useFetch();
+      request('https://jsonplaceholder.typicode.com/posts/1');
 
-      useEffect(() => {
-         (() => request('https://jsonplaceholder.typicode.com/posts/'))();
-      }, [request]);
-
-      if (error) return render(`Error | ${error.message} 😔`);
-      if (loading) return render('Loading...');
-      if (data) return render('Success ✅');
-
-      return render();
+      return (
+         <span>
+            {isFetching && 'Loading...'}
+            {error && error.message}
+            {data && data.title}
+         </span>
+      );
    };
    ```
 
-</details>
+-  An advanced example of using with all options:
+
+   ```jsx
+   import React, { useEffect } from 'react';
+   import useFetch from '../hooks/useFetch';
+
+   () => {
+      const axiosCreate = { baseURL: 'https://jsonplaceholder.typicode.com', timeout: 10000 };
+      const { request, isFetching, data, error } = useFetch(axiosCreate);
+
+      useEffect(() => {
+         (() => {
+            const options = {
+               method: 'get', // default: get
+               revalidateOnFocus: true, // default: false
+               verbose: true, // default: false
+               refetchAtEvery: '1m', // default: null
+               minInterval: '30s', // default: 1s
+               observe: 'span#request', // default: null
+            }; // You can extend any Axios options here
+
+            request('posts/1', options);
+         })();
+      }, []);
+
+      return (
+         <span id='#request'>
+            {isFetching && 'Loading...'}
+            {error && error.message}
+            {data && 'Success'}
+         </span>
+      );
+   };
+   ```
+
+   -  **`methods`:** `get`, `delete`, `head`, `options`, `post`, `put` and `patch`
+   -  **`revalidateOnFocus`:** Refetch each time the page comes back into focus
+   -  **`verbose`:** Print response to console
+   -  **`refetchAtEvery`:** Refetch every time as defined when document is in focus (setInterval)
+   -  **`minInterval`:** Prevents a re-request in a defined minimum interval
+   -  **`observe`:** Prevents a re-request while the set element is not visible in DOM
 
 <hr />
 

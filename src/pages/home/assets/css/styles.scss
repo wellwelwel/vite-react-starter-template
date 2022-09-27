@@ -24,8 +24,12 @@ body {
             color: #fff;
             padding: 10px;
 
+            &::before {
+               content: 'Request Test: ';
+            }
+
             &::after {
-               content: 'See in Network 💡';
+               content: 'See in Console 💡';
                display: block;
                font-size: 12px;
                text-align: right;
