@@ -35,12 +35,13 @@
    -  An example of using:
 
       ```jsx
-      import { s, sAll } from '../helpers/selectors';
+      // import { s, sAll, sEl, sElAll } from '../helpers/selectors';
+      import * from '../helpers/selectors';
 
-      s('#id');
-      sAll('.class');
-      s('#id').s('.child');
-      s('#id').sAll('.childs');
+      const element = s('#id'); // d
+      const elements = sAll('.class');
+      const child = sEl(element, '.child');
+      const childs = sElAll(element, '.childs');
       ```
 
 -  #### head
@@ -72,7 +73,7 @@
          attributes: [
             {
                name: 'src',
-               value: 'https://www.googletagmanager.com/gtag/js?id=G-123',
+               value: 'https://www.googletagmanager.com/gtag/js?id=G-XXX',
             },
             {
                name: 'async',
@@ -88,7 +89,7 @@
                dataLayer.push(arguments)
             }
             gtag('js', new Date())
-            gtag('config', 'G-123')
+            gtag('config', 'G-XXX')
          `,
       });
       ```
