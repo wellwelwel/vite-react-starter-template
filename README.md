@@ -30,7 +30,7 @@
 
 ### 💡 Helpers
 
--  #### Selectors
+-  #### selectors
 
    -  An example of using:
 
@@ -43,7 +43,7 @@
       s('#id').sAll('.childs');
       ```
 
--  #### Head
+-  #### head
 
    -  An example of using:
 
