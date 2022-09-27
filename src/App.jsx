@@ -20,8 +20,8 @@ import DashboardRoutes from './pages/dashboard/Routes';
 const App = () => (
    <Router>
       <Routes>
-         {HomeRoutes()}
-         {DashboardRoutes()}
+         {HomeRoutes}
+         {DashboardRoutes}
       </Routes>
    </Router>
 );
