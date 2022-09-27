@@ -1,15 +1,16 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
+import doLazy from '../../utils/doLazy';
 
-import DashboardLayout from './Layout';
-import Dashboard from './components/Dashboard';
+const Layout = doLazy(import('./Layout'));
+const Dashboard = doLazy(import('./components/Dashboard'));
 
-const DashboardRoutes = () => {
+const Routes = () => {
    return (
-      <Route element={<DashboardLayout />}>
-         <Route path='/dashboard' element={<Dashboard />} />
+      <Route element={Layout}>
+         <Route path='/dashboard' element={Dashboard} />
       </Route>
    );
 };
 
-export default DashboardRoutes;
+export default Routes;
