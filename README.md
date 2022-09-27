@@ -35,13 +35,13 @@
    -  An example of using:
 
       ```jsx
-      // import { s, sAll, sEl, sElAll } from '../helpers/selectors';
       import * from '../helpers/selectors';
+      // import { s, sAll, sEl, sElAll } from '../helpers/selectors';
 
-      const element = s('#id'); // d
-      const elements = sAll('.class');
-      const child = sEl(element, '.child');
-      const childs = sElAll(element, '.childs');
+      s('#id');                     // document.querySelector('#id');
+      sAll('.class');               // document.querySelectorAll('.class');
+      sEl(element, '.child');       // element.querySelector('.child');
+      sElAll(element, '.childs');   // element.querySelectorAll('.childs');
       ```
 
 -  #### head
@@ -68,12 +68,15 @@
        * @param {array} attributes is optional
        * @param {string} textContent is optional
        **/
+
+      const gtag = 'XXXXXXXXXX';
+
       head.createElement({
          element: 'script',
          attributes: [
             {
                name: 'src',
-               value: 'https://www.googletagmanager.com/gtag/js?id=G-XXX',
+               value: `https://www.googletagmanager.com/gtag/js?id=G-${gtag}`,
             },
             {
                name: 'async',
@@ -89,7 +92,7 @@
                dataLayer.push(arguments)
             }
             gtag('js', new Date())
-            gtag('config', 'G-XXX')
+            gtag('config', 'G-${gtag}')
          `,
       });
       ```
