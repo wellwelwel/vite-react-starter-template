@@ -34,7 +34,7 @@
 
    -  An example of using:
 
-      ```jsx
+      ```js
       import * from '../helpers/selectors';
       // import { s, sAll, sEl, sElAll } from '../helpers/selectors';
 
@@ -48,7 +48,7 @@
 
    -  An example of using:
 
-      ```jsx
+      ```js
       import head from '../helpers/head';
       import { favicon } from '../favicon.svg';
 
@@ -101,7 +101,7 @@
 
    -  An example of using:
 
-      ```jsx
+      ```js
       import setTime from '../helpers/setTime';
 
       setTime(1000); // 1000
