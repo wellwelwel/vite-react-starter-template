@@ -7,7 +7,7 @@ import { disableReactDevTools } from '@fvilers/disable-react-devtools';
 // Global styles (Reset CSS, Fonts, Root Variables, etc.)
 import './assets/scss/main.scss';
 
-if (process.env.NODE_ENV === 'production') disableReactDevTools();
+const isProduction = process.env.NODE_ENV === 'production';
 
 // Create root
 const conteiner = document.getElementById('root');
@@ -17,13 +17,23 @@ const root = createRoot(conteiner);
 import HomeRoutes from './pages/home/Routes';
 import DashboardRoutes from './pages/dashboard/Routes';
 
-root.render(
-   <React.StrictMode>
-      <Router>
-         <Routes>
-            {HomeRoutes()}
-            {DashboardRoutes()}
-         </Routes>
-      </Router>
-   </React.StrictMode>
+const App = () => (
+   <Router>
+      <Routes>
+         {HomeRoutes()}
+         {DashboardRoutes()}
+      </Routes>
+   </Router>
 );
+
+if (isProduction) {
+   disableReactDevTools();
+
+   root.render(
+      <React.StrictMode>
+         <App />
+      </React.StrictMode>
+   );
+}
+
+root.render(<App />);
