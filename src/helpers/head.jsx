@@ -15,7 +15,7 @@ export const createElement = (options = { element: 'meta', attributes: [], textC
    const element = document.createElement(options.element);
 
    options?.attributes &&
-      options.attributes.forEach((attribute) => element.setAttribute(attribute.name, attribute.value));
+      options.attributes.forEach((attribute) => element.setAttribute(attribute.name, attribute?.value || ''));
 
    if (options?.textContext) element.textContent = options.textContext;
 

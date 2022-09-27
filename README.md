@@ -68,22 +68,28 @@
        * @param {string} textContent is optional
        **/
       head.createElement({
-         element: 'link',
+         element: 'script',
          attributes: [
             {
-               name: 'rel',
-               value: 'alternate',
+               name: 'src',
+               value: 'https://www.googletagmanager.com/gtag/js?id=G-123',
             },
             {
-               name: 'hreflang',
-               value: 'pt-BR',
-            },
-            {
-               name: 'href',
-               value: '/langs/pt-BR',
+               name: 'async',
             },
          ],
-         textContent: 'Brazilian Portuguese',
+      });
+
+      head.createElement({
+         element: 'script',
+         textContext: `
+            window.dataLayer = window.dataLayer || []
+            function gtag() {
+               dataLayer.push(arguments)
+            }
+            gtag('js', new Date())
+            gtag('config', 'G-123')
+         `,
       });
       ```
 
