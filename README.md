@@ -3,7 +3,7 @@
 
 ### 🚀 Playground
 
--  You can see it in action at: [StackBlitz](https://stackblitz.com/edit/node-gkypjp)
+-  See it in action at: [StackBlitz](https://stackblitz.com/edit/node-gkypjp)
 
 <hr />
 
@@ -14,7 +14,7 @@
    -  `npm i`, then:
       -  `npm start` to start a Vite localhost
       -  `npm run build` to build the project
-      -  `npm run clean` if you want work with a empty Home 🏠
+      -  `npm run clean` to work with a empty Home 🏠
          -  Maybe, this command doesn't work in some Windows versions
 
 -  Testing Routes in an Apache Server
@@ -157,7 +157,7 @@
                refetchAtEvery: '1m', // default: null
                minInterval: '30s', // default: 1s
                observe: 'span#request', // default: null
-            }; // You can extend any Axios options here
+            }; // The "options" can extend any Axios options
 
             request('posts/1', options);
          })();
