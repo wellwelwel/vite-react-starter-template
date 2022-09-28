@@ -5,10 +5,11 @@
    "version": "0.0.0",
    "type": "module",
    "scripts": {
-      "build": "npm ci --ignore-scripts; npm audit fix; vite build; node ./express.js",
+      "build": "npm ci --ignore-scripts; npm audit fix; vite build;",
       "clean": "sh ./clean.sh;",
-      "init": "npm i --ignore-scripts;",
-      "postinit": "npm run update;",
+      "init": "npm i --ignore-scripts; npm audit fix;",
+      "preview": "npm run build; node ./express.js;",
+      "stackblitz": "npm i; npx ncu -u; npm i; vite build; node ./express.js;",
       "start": "vite;",
       "update": "npx ncu -u; npm i --ignore-scripts; npm audit fix;"
    },
@@ -32,6 +33,7 @@
       "postcss": "^8.4.16",
       "prettier": "^2.7.1",
       "sass": "^1.55.0",
+      "terser": "^5.15.0",
       "vite": "^3.1.3"
    },
    "browserslist": [
