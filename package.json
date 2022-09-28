@@ -9,7 +9,7 @@
       "clean": "sh ./clean.sh;",
       "init": "npm i --ignore-scripts; npm audit fix;",
       "preview": "npm run build; npm run serve;",
-      "serve": "nodemon --delay 2.5 --watch ./dist ./express.js;",
+      "serve": "nodemon --delay 1 --watch ./express.js ./express.js;",
       "stackblitz": "npm i; npx ncu -u; npm i; vite build; npm run serve;",
       "start": "vite;",
       "update": "npx ncu -u; npm i --ignore-scripts; npm audit fix;"
