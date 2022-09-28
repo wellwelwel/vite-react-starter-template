@@ -11,7 +11,7 @@
       "preview": "npm run build; npm run serve;",
       "serve": "nodemon --delay 1 --watch ./express.js ./express.js;",
       "stackblitz": "npm i; npx ncu -u; npm i; vite build; npm run serve;",
-      "start": "vite;",
+      "start": "vite --host;",
       "update": "npx ncu -u; npm i --ignore-scripts; npm audit fix;"
    },
    "dependencies": {
