@@ -11,10 +11,10 @@
 
 -  Commands
 
-   -  `npm i`, then:
-      -  `npm start` to start a Vite localhost
-      -  `npm run build` to build the project
-      -  `npm run clean` to work with a empty Home 🏠
+   -  `npm run init`, then:
+      -  `npm run dev:start` to start a Vite localhost
+      -  `npm run server:build` to build the project
+      -  `npm run init:clean` to work with a empty Home 🏠
          -  Maybe, this command doesn't work in some Windows versions
 
 -  Testing Routes in an Apache Server
