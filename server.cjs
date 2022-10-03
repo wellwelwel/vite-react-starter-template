@@ -9,6 +9,10 @@ const hosts = [
       baseURL: 'localhost',
       app: './hosts/main.cjs',
    },
+   {
+      baseURL: 'www.localhost',
+      app: './hosts/main.cjs',
+   },
 ];
 
 for (const host of hosts) server.use(vhost(host.baseURL, require(host.app)));
