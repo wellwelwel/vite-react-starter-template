@@ -39,7 +39,7 @@
       "cssnano": "^5.1.13",
       "eslint": "^8.24.0",
       "nodemon": "^2.0.20",
-      "npm-check-updates": "^16.3.7",
+      "npm-check-updates": "^16.3.8",
       "postcss": "^8.4.17",
       "prettier": "^2.7.1",
       "sass": "^1.55.0",
