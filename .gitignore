@@ -10,8 +10,9 @@ lerna-debug.log*
 node_modules
 dist
 dist-ssr
+docker/app
+docker/backup
 *.local
-package-lock.json
 
 # Editor directories and files
 .idea
