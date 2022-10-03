@@ -5,7 +5,7 @@
    "version": "0.0.0",
    "type": "module",
    "scripts": {
-      "dev:eject": "rm -rf dist docker/backup node_modules",
+      "dev:eject": "rm -rf dist docker/backup",
       "dev:stackblitz": "npm run init; npm run server:preview",
       "dev:start": "vite --host",
       "docker:backup": "rsync -av --exclude='node_modules' docker/app/ docker/backup/",
@@ -13,7 +13,7 @@
       "docker:eject": "docker rm react-node-server -f; docker image rm docker-server; rm -rf docker/app",
       "docker:update": "npm run server:build && node scripts/node/mount.cjs",
       "init": "npm i --ignore-scripts; npm run init:update",
-      "init:clean": "sh scripts/bash/clean.sh",
+      "init:clean": "npm run init; sh scripts/bash/clean.sh",
       "init:update": "npx ncu -u; npm i --ignore-scripts",
       "server:build": "vite build",
       "server:listen": "nodemon --delay 1 --watch hosts --watch server.cjs server.cjs",
