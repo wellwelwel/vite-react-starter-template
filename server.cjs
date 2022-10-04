@@ -25,7 +25,7 @@ for (const host of hosts) server.use(vhost(host.baseURL, require(host.app)));
 server.listen(port, () => {
    const domains = hosts.map((host) => `    ➜ \x1b[34mhttp://${host.baseURL}:${port}/\x1b[0m`);
 
-   // Remove error route
+   // Remove cname error route
    domains.pop();
    console.log(
       [
