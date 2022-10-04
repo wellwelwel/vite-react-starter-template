@@ -14,6 +14,7 @@ const hosts = [
       app: './hosts/main.cjs',
    },
    {
+      /* Keep in last position */
       baseURL: '*.localhost',
       app: './hosts/404.cjs',
    },
@@ -22,6 +23,10 @@ const hosts = [
 for (const host of hosts) server.use(vhost(host.baseURL, require(host.app)));
 
 server.listen(port, () => {
+   const domains = hosts.map((host) => `    ➜ \x1b[34mhttp://${host.baseURL}:${port}/\x1b[0m`);
+
+   // Remove error route
+   domains.pop();
    console.log(
       [
          `\n\n`,
@@ -29,7 +34,7 @@ server.listen(port, () => {
          `\n\n`,
          `  \x1b[1m🚀  Listening\x1b[0m in:`,
          `\n\n`,
-         hosts.map((host) => `    ➜ \x1b[34mhttp://${host.baseURL}:${port}/\x1b[0m`).join('\n'),
+         domains.join('\n'),
          `\n`,
       ].join('')
    );
