@@ -1,6 +1,6 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
-import head from '../../helpers/head';
+import head from 'helpers/head';
 
 // Assets
 import './assets/css/styles.scss';

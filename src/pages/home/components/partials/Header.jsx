@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import useFetch from '../../../../hooks/useFetch';
+import useFetch from 'hooks/useFetch';
 
 const Header = () => {
    const axiosCreate = { baseURL: 'https://jsonplaceholder.typicode.com', timeout: 10000 };

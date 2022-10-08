@@ -35,8 +35,8 @@
    -  An example of using:
 
       ```js
-      import * from '../helpers/selectors';
-      // import { s, sAll, sEl, sElAll } from '../helpers/selectors';
+      import * from 'helpers/selectors';
+      // import { s, sAll, sEl, sElAll } from 'helpers/selectors';
 
       s('#id');                     // document.querySelector('#id');
       sAll('.class');               // document.querySelectorAll('.class');
@@ -49,7 +49,7 @@
    -  An example of using:
 
       ```js
-      import head from '../helpers/head';
+      import head from 'helpers/head';
       import { favicon } from '../favicon.svg';
 
       /**
@@ -102,7 +102,7 @@
    -  An example of using:
 
       ```js
-      import setTime from '../helpers/setTime';
+      import setTime from 'helpers/setTime';
 
       setTime(1000); // 1000
       setTime('1s'); // 1000
@@ -119,7 +119,7 @@
 -  A simple example of using:
 
    ```jsx
-   import useFetch from '../hooks/useFetch';
+   import useFetch from 'hooks/useFetch';
 
    () => {
       const { request, isFetching, data, error } = useFetch();
@@ -139,7 +139,7 @@
 
    ```jsx
    import React, { useEffect } from 'react';
-   import useFetch from '../hooks/useFetch';
+   import useFetch from 'hooks/useFetch';
 
    () => {
       const axiosCreate = {

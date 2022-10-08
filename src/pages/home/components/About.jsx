@@ -1,5 +1,5 @@
 import React from 'react';
-import head from '../../../helpers/head';
+import head from 'helpers/head';
 
 const About = () => {
    head.title('About | React Basic Starter');

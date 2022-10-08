@@ -3,6 +3,7 @@ import react from '@vitejs/plugin-react';
 import legacy from '@vitejs/plugin-legacy';
 import autoprefixer from 'autoprefixer';
 import cssnano from 'cssnano';
+import { resolve } from 'path';
 
 export default defineConfig({
    plugins: [
@@ -14,6 +15,16 @@ export default defineConfig({
    css: {
       postcss: {
          plugins: [autoprefixer, cssnano],
+      },
+   },
+   resolve: {
+      alias: {
+         '@': resolve(__dirname, './src'),
+         assets: resolve(__dirname, './src/assets'),
+         helpers: resolve(__dirname, './src/helpers'),
+         hooks: resolve(__dirname, './src/hooks'),
+         pages: resolve(__dirname, './src/pages'),
+         utils: resolve(__dirname, './src/utils'),
       },
    },
 });

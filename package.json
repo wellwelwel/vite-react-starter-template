@@ -11,6 +11,7 @@
       "docker:backup": "rsync -av --exclude='node_modules' docker/app/ docker/backup/",
       "docker:compose": "npm run docker:eject &> /dev/null; npm run server:build && node scripts/node/mount.cjs --force && cd docker && docker-compose up -d",
       "docker:eject": "docker rm react-node-server -f; docker image rm docker-server; rm -rf docker/app",
+      "docker:restart": "docker restart react-node-server",
       "docker:update": "node scripts/node/mount.cjs",
       "docker:update:build": "npm run server:build && node scripts/node/mount.cjs",
       "docker:watch": "node scripts/node/watch.cjs",

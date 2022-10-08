@@ -7,11 +7,11 @@ const port = 3000;
 const hosts = [
    {
       baseURL: 'localhost',
-      app: './hosts/main.cjs',
+      app: './hosts/main/app.cjs',
    },
    {
       baseURL: 'www.localhost',
-      app: './hosts/main.cjs',
+      app: './hosts/main/app.cjs',
    },
    {
       /* Keep in last position */

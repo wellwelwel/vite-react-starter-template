@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
-import doLazy from '../../utils/doLazy';
+import doLazy from 'utils/doLazy';
 
 import Home from './components/Home';
 import About from './components/About';

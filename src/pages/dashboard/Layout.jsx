@@ -1,7 +1,7 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
-import head from '../../helpers/head';
-import { s } from '../../helpers/selectors';
+import head from 'helpers/head';
+import { s } from 'helpers/selectors';
 
 // Assets
 import './assets/css/styles.scss';

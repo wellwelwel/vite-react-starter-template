@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import useFetch from '../../../../hooks/useFetch';
+import useFetch from 'hooks/useFetch';
 
 const Footer = () => {
    const { request, isFetching, data, error } = useFetch();
