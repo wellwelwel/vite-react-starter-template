@@ -1,7 +1,7 @@
 const express = require('express');
 const { json, urlencoded } = require('body-parser');
 const { resolve } = require('path');
-const router = require('./router');
+const router = require('./router.cjs');
 
 const app = express();
 
