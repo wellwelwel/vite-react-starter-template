@@ -30,7 +30,7 @@
 
 ### 💡 Helpers
 
--  #### selectors
+-  #### [selectors](./src/helpers/selectors.jsx)
 
    -  An example of using:
 
@@ -44,7 +44,7 @@
       sElAll(element, '.childs');   // element.querySelectorAll('.childs');
       ```
 
--  #### head
+-  #### [head](./src/helpers/head.jsx)
 
    -  An example of using:
 
@@ -97,7 +97,7 @@
       });
       ```
 
--  #### setTime
+-  #### [setTime](./src/helpers/setTime.jsx)
 
    -  An example of using:
 
@@ -114,7 +114,7 @@
 
 ### ⚛️ Hooks
 
-#### useFetch (with [Axios](https://axios-http.com/ptbr/docs/api_intro))
+#### [useFetch](./src/hooks/useFetch.jsx) (with [Axios](https://axios-http.com/ptbr/docs/api_intro))
 
 -  A simple example of using:
 
