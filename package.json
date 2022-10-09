@@ -19,19 +19,19 @@
       "init:clean": "npm run init; sh scripts/bash/clean.sh",
       "init:update": "npx ncu -u; npm i --ignore-scripts",
       "server:build": "vite build",
-      "server:listen": "nodemon --delay 1 --watch hosts --watch server.cjs server.cjs",
+      "server:listen": "nodemon --delay 1 --watch hosts --watch server.cjs --watch .env server.cjs",
       "server:preview": "npm run server:build && npm run server:listen"
    },
    "dependencies": {
       "@fvilers/disable-react-devtools": "^1.3.0",
       "axios": "^1.1.2",
       "body-parser": "^1.20.1",
-      "connect": "^3.7.0",
+      "dotenv": "^16.0.3",
       "express": "^4.18.1",
+      "express-session": "^1.17.3",
       "react": "^18.2.0",
       "react-dom": "^18.2.0",
-      "react-router-dom": "^6.4.2",
-      "vhost": "^3.0.2"
+      "react-router-dom": "^6.4.2"
    },
    "devDependencies": {
       "@types/react": "^18.0.21",

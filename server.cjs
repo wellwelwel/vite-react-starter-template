@@ -1,32 +1,10 @@
-const connect = require('connect');
-const vhost = require('vhost');
+require('dotenv').config();
 
-const server = connect();
-const port = 3000;
-
-const hosts = [
-   {
-      baseURL: 'localhost',
-      app: './hosts/main/app.cjs',
-   },
-   {
-      baseURL: 'www.localhost',
-      app: './hosts/main/app.cjs',
-   },
-   {
-      /* Keep in last position */
-      baseURL: '*.localhost',
-      app: './hosts/404.cjs',
-   },
-];
-
-for (const host of hosts) server.use(vhost(host.baseURL, require(host.app)));
+const server = require('./hosts/main/app.cjs');
+const port = process.env.PORT;
+const hosts = JSON.parse(process.env.TRUSTED_HOSTS).map((host) => `    ➜ \x1b[34mhttp://${host}:${port}/\x1b[0m`);
 
 server.listen(port, () => {
-   const domains = hosts.map((host) => `    ➜ \x1b[34mhttp://${host.baseURL}:${port}/\x1b[0m`);
-
-   // Remove cname error route
-   domains.pop();
    console.log(
       [
          `\n\n`,
@@ -34,8 +12,8 @@ server.listen(port, () => {
          `\n\n`,
          `  \x1b[1m🚀  Listening\x1b[0m in:`,
          `\n\n`,
-         domains.join('\n'),
-         `\n`,
+         hosts.join('\n'),
+         `\n\n`,
       ].join('')
    );
 });

@@ -3,6 +3,7 @@
       "node_modules": true,
       "package-lock.json": true,
       ".prettierrc": true,
-      "vite.config.js": false
+      ".stackblitzrc": true,
+      "vite.config.js": true
    }
 }
