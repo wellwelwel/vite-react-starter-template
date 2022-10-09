@@ -1,10 +1,9 @@
 require('dotenv').config();
 
-const { resolve } = require('path');
 const express = require('express');
 const session = require('express-session');
 const { json, urlencoded } = require('body-parser');
-const router = require('./router.cjs');
+const reactApp = require('./routes/reactApp.cjs');
 
 const app = express();
 const secret = process.env.SESSION_SECRET;
@@ -25,13 +24,15 @@ app.use(
 app.use(json());
 app.use(urlencoded({ extended: true }));
 
+/* Global middleware */
 app.use((req, res, next) => {
-   if (trustedHosts.includes(req.headers.host.split(':').shift())) next();
+   const host = req.headers.host.split(':')[0];
+
+   if (trustedHosts.includes(host)) next();
    else res.status(404).send('');
 });
 
-/* React App */
-app.use(express.static(resolve('./dist')));
-app.use(router);
+/* Routes */
+app.use(reactApp);
 
 module.exports = app;
