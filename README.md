@@ -12,7 +12,8 @@
 -  Commands
 
    -  `npm run init`, then:
-      -  `npm run dev:start` to start a Vite localhost
+      -  `npm run dev:react` to start a React + Vite localhost
+      -  `npm run server:preview` to preview the built project
       -  `npm run server:build` to build the project
       -  `npm run init:clean` to work with a empty Home 🏠
          -  Maybe, this command doesn't work in some Windows versions

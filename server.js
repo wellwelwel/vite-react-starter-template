@@ -1,6 +1,8 @@
-require('dotenv').config();
+import { config as dotenv } from 'dotenv';
+import server from './hosts/main/app.js';
 
-const server = require('./hosts/main/app.cjs');
+dotenv();
+
 const port = process.env.PORT;
 const hosts = JSON.parse(process.env.TRUSTED_HOSTS).map((host) => `    ➜ \x1b[34mhttp://${host}:${port}/\x1b[0m`);
 

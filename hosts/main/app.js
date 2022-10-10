@@ -1,9 +1,10 @@
-require('dotenv').config();
+import { config as dotenv } from 'dotenv';
+import express from 'express';
+import session from 'express-session';
+import bodyParser from 'body-parser';
+import reactApp from './routes/reactApp.js';
 
-const express = require('express');
-const session = require('express-session');
-const { json, urlencoded } = require('body-parser');
-const reactApp = require('./routes/reactApp.cjs');
+dotenv();
 
 const app = express();
 const secret = process.env.SESSION_SECRET;
@@ -21,8 +22,8 @@ app.use(
    })
 );
 
-app.use(json());
-app.use(urlencoded({ extended: true }));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 /* Global middleware */
 app.use((req, res, next) => {
@@ -35,4 +36,4 @@ app.use((req, res, next) => {
 /* Routes */
 app.use(reactApp);
 
-module.exports = app;
+export default app;

@@ -6,29 +6,31 @@
    "type": "module",
    "scripts": {
       "dev:eject": "rm -rf dist docker/backup",
+      "dev:react": "vite --host",
       "dev:stackblitz": "npm run init; npm run server:preview",
-      "dev:start": "vite --host",
       "docker:backup": "rsync -av --exclude='node_modules' docker/app/ docker/backup/",
-      "docker:compose": "npm run docker:eject &> /dev/null; npm run server:build && node scripts/node/mount.cjs --force && cd docker && docker-compose up -d",
+      "docker:compose": "npm run docker:eject &> /dev/null; npm run server:build && node scripts/node/mount.js --force && cd docker && docker-compose up -d",
       "docker:eject": "docker rm react-node-server -f; docker image rm docker-server; rm -rf docker/app",
       "docker:restart": "docker restart react-node-server",
-      "docker:update": "node scripts/node/mount.cjs",
-      "docker:update:build": "npm run server:build && node scripts/node/mount.cjs",
-      "docker:watch": "node scripts/node/watch.cjs",
+      "docker:update": "node scripts/node/mount.js",
+      "docker:update:build": "npm run server:build && node scripts/node/mount.js",
+      "docker:watch": "node scripts/node/watch.js",
       "init": "npm i --ignore-scripts; npm run init:update",
       "init:clean": "npm run init; sh scripts/bash/clean.sh",
       "init:update": "npx ncu -u; npm i --ignore-scripts",
       "server:build": "vite build",
-      "server:listen": "nodemon --delay 1 --watch hosts --watch server.cjs --watch .env server.cjs",
+      "server:listen": "nodemon --delay 1 --watch hosts --watch server.js --watch .env server.js",
       "server:preview": "npm run server:build && npm run server:listen"
    },
    "dependencies": {
       "@fvilers/disable-react-devtools": "^1.3.0",
       "axios": "^1.1.2",
+      "bcrypt": "^5.1.0",
       "body-parser": "^1.20.1",
       "dotenv": "^16.0.3",
       "express": "^4.18.2",
       "express-session": "^1.17.3",
+      "html-entities": "^2.3.3",
       "react": "^18.2.0",
       "react-dom": "^18.2.0",
       "react-router-dom": "^6.4.2"
@@ -43,12 +45,12 @@
       "eslint": "^8.25.0",
       "node-watch": "^0.7.3",
       "nodemon": "^2.0.20",
-      "npm-check-updates": "^16.3.9",
+      "npm-check-updates": "^16.3.11",
       "postcss": "^8.4.17",
       "prettier": "^2.7.1",
       "sass": "^1.55.0",
       "terser": "^5.15.1",
-      "vite": "^3.1.6"
+      "vite": "^3.1.7"
    },
    "browserslist": [
       "> 0%"
