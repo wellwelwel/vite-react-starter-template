@@ -1,9 +1,9 @@
-const { resolve } = require('path');
-const fs = require('fs');
-const { EOL } = require('os');
-const { execSync: exec } = require('child_process');
-const [, , ...args] = process.argv;
+import { resolve } from 'path';
+import fs from 'fs';
+import { EOL } from 'os';
+import { execSync as exec } from 'child_process';
 
+const [, , ...args] = process.argv;
 const force = args.includes('--force');
 
 (() => {
@@ -39,6 +39,7 @@ const force = args.includes('--force');
    // Mount clean package.json
    const newPackageJSON = {
       dependencies: packageJSON.dependencies,
+      type: 'module',
    };
 
    fs.writeFileSync('./docker/app/package.json', JSON.stringify(newPackageJSON, null, 3));

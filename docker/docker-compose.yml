@@ -3,7 +3,7 @@ services:
       build: .
       container_name: 'react-node-server'
       working_dir: /usr/app
-      command: pm2-runtime /usr/app/server.cjs --watch
+      command: pm2-runtime /usr/app/server.js --watch
       ports:
          - '127.0.0.1:3000:3000'
       volumes:
