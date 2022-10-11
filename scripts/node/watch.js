@@ -1,5 +1,6 @@
 import watch from 'node-watch';
 import { exec } from 'child_process';
+import fs from 'fs';
 
 const watcher = watch('./', { recursive: true });
 
@@ -14,10 +15,12 @@ const events = {
    },
 };
 
+if (!fs.existsSync('./docker/app')) exec('mkdir -p docker/app');
+
 watcher.on('change', (event, file) => {
    const blacklist = {
       dot: /\.(git|github|vscode|dockerignore|DS_Store|eslintrcjs|gitignore|prettierignore|prettierrc|stackblitzrc)/,
-      start: /^(bash|docker|node_modules|scripts|src|docker-compose.yml|Dockerfile|vite.config.js|index.html)/,
+      start: /^(bash|node_modules|scripts|src|docker-compose.yml|Dockerfile|vite.config.js|index.html)/,
       type: /(.+)\.md$/,
       custom: /^package(-lock)?\.json$/,
       test: (file) =>
@@ -27,8 +30,9 @@ watcher.on('change', (event, file) => {
          blacklist.custom.test(file),
    };
 
+   if (/^docker\/app/.test(file)) return;
    if (blacklist.test(file)) {
-      console.log(`\x1b[1m\x1b[32mIgnoring:\x1b[0m ./${file}\x1b[0m`);
+      console.log(`\x1b[1m\x1b[34mIgnoring:\x1b[0m \x1b[2m./${file}\x1b[0m`);
       return;
    }
 
