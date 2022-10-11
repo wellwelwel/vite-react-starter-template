@@ -1,6 +1,9 @@
 import safe from 'safe-regex';
 
 const list = [
+   /(<([^>]+)>)/gim,
+   /image\/(.+);/,
+   /^([0-9]+)(h|m|s)$/,
    /\.ico$/,
    /\.(css|json|js)$/,
    /assets/,
