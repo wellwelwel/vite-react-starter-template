@@ -7,6 +7,7 @@ const setLimiter = (times = 100, perMilliseconds = setTime('5s')) => {
       max: times,
       standardHeaders: true,
       legacyHeaders: false,
+      keyGenerator: () => {},
    });
 };
 

@@ -13,11 +13,14 @@ const app = express();
 const secret = process.env.SESSION_SECRET;
 const trustedHosts = JSON.parse(process.env.TRUSTED_HOSTS);
 
-app.use(
-   helmet({
-      contentSecurityPolicy: false,
-   })
-);
+app.set('trust proxy', 1);
+
+/* Commented because bug with Stackblitz, uncomment in production */
+// app.use(
+//    helmet({
+//       contentSecurityPolicy: false,
+//    })
+// );
 
 /* Rate Limit */
 app.use((req, res, next) => {
