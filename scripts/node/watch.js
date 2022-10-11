@@ -19,7 +19,7 @@ watcher.on('change', (event, file) => {
       dot: /\.(git|github|vscode|dockerignore|DS_Store|eslintrcjs|gitignore|prettierignore|prettierrc|stackblitzrc)/,
       start: /^(bash|docker|node_modules|scripts|src|docker-compose.yml|Dockerfile|vite.config.js|index.html)/,
       type: /(.+)\.md$/,
-      custom: /^package(.+)json$/,
+      custom: /^package(-lock)?\.json$/,
       test: (file) =>
          blacklist.dot.test(file) ||
          blacklist.start.test(file) ||

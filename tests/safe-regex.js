@@ -3,7 +3,7 @@ import safe from 'safe-regex';
 const list = [
    /\.(git|github|vscode|dockerignore|DS_Store|eslintrcjs|gitignore|prettierignore|prettierrc|stackblitzrc)/,
    /^(bash|docker|node_modules|scripts|src|docker-compose.yml|Dockerfile|vite.config.js|index.html)/,
-   /^package(.+)json$/,
+   /^package(-lock)?\.json$/,
    /(.+)\.md$/,
    /(<([^>]+)>)/gm,
    /image\/(.+);/,
