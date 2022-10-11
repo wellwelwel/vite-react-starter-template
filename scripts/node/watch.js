@@ -6,11 +6,11 @@ const watcher = watch('./', { recursive: true });
 const events = {
    update: (file) => {
       exec(`rsync -av ${file} docker/app/${file}`);
-      console.log(`\x1b[1m\x1b[32mUpdated:\x1b[0m ./${file} \x1b[32m➜\x1b[0m ./docker/app/${file}`);
+      console.log(`\x1b[1m\x1b[32mUpdated:\x1b[0m  ./${file} \x1b[32m➜\x1b[0m ./docker/app/${file}`);
    },
    remove: (file) => {
       exec(`rm -rf docker/app/${file}`);
-      console.log(`\x1b[1m\x1b[31mRemoved:\x1b[0m ./${file} \x1b[31m➜\x1b[0m ./docker/app/${file}`);
+      console.log(`\x1b[1m\x1b[31mRemoved:\x1b[0m  ./${file} \x1b[31m➜\x1b[0m ./docker/app/${file}`);
    },
 };
 
@@ -27,7 +27,10 @@ watcher.on('change', (event, file) => {
          blacklist.custom.test(file),
    };
 
-   if (blacklist.test(file)) return;
+   if (blacklist.test(file)) {
+      console.log(`\x1b[1m\x1b[32mIgnoring:\x1b[0m ./${file}\x1b[0m`);
+      return;
+   }
 
    events[event](file);
 });
