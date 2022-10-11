@@ -1,9 +1,9 @@
 import rateLimit from 'express-rate-limit';
 import setTime from '../helpers/setTime.js';
 
-const setLimiter = (times = 100, perMilliseconds = setTime('5s')) => {
+const setLimiter = (times = 100, perMilliseconds = '5s') => {
    return rateLimit({
-      windowMs: perMilliseconds,
+      windowMs: setTime(perMilliseconds),
       max: times,
       standardHeaders: true,
       legacyHeaders: false,
@@ -13,17 +13,17 @@ const setLimiter = (times = 100, perMilliseconds = setTime('5s')) => {
 
 const limiter = {
    /* By pages */
-   main: setLimiter(10, setTime('2s')),
+   main: setLimiter(10, '2s'),
 
    /* By size */
-   small: setLimiter(35, setTime('2s')),
-   medium: setLimiter(25, setTime('4s')),
-   large: setLimiter(15, setTime('8s')),
+   small: setLimiter(35, '2s'),
+   medium: setLimiter(25, '4s'),
+   large: setLimiter(15, '8s'),
 
    /* Resources */
-   images: setLimiter(60, setTime('3s')),
+   images: setLimiter(60, '3s'),
 
-   errors: setLimiter(4, setTime('2s')),
+   errors: setLimiter(4, '2s'),
    default: setLimiter(),
 };
 
