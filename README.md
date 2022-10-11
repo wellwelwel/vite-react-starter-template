@@ -31,7 +31,7 @@
 
 ### 💡 Helpers
 
--  #### [selectors](./src/helpers/selectors.js)
+-  #### [selectors](./helpers/selectors.js)
 
    -  An example of using:
 
@@ -45,7 +45,7 @@
       sElAll(element, '.childs');   // element.querySelectorAll('.childs');
       ```
 
--  #### [head](./src/helpers/head.js)
+-  #### [head](./helpers/head.js)
 
    -  An example of using:
 
@@ -98,7 +98,7 @@
       });
       ```
 
--  #### [setTime](./src/helpers/setTime.js)
+-  #### [setTime](./helpers/setTime.js)
 
    -  An example of using:
 
