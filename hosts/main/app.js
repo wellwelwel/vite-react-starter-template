@@ -2,6 +2,9 @@ import { config as dotenv } from 'dotenv';
 import express from 'express';
 import session from 'express-session';
 import bodyParser from 'body-parser';
+import helmet from 'helmet';
+import xss from '../../helpers/xss.js';
+import limiter from '../../configs/limiter.js';
 import reactApp from './routes/reactApp.js';
 
 dotenv();
@@ -9,6 +12,24 @@ dotenv();
 const app = express();
 const secret = process.env.SESSION_SECRET;
 const trustedHosts = JSON.parse(process.env.TRUSTED_HOSTS);
+
+app.use(
+   helmet({
+      contentSecurityPolicy: false,
+   })
+);
+
+/* Rate Limit */
+app.use((req, res, next) => {
+   const { url } = req;
+
+   /* Resources */
+   if (/\.ico$/.test(url)) limiter.default(req, res, next);
+   else if (/\.(css|json|js)$/.test(url)) limiter.small(req, res, next);
+   else if (/assets/.test(url)) limiter.images(req, res, next);
+   // Default
+   else limiter.default(req, res, next);
+});
 
 app.use(
    session({
@@ -34,6 +55,7 @@ app.use((req, res, next) => {
 });
 
 /* Routes */
+app.get('/test', (req, res) => res.send(xss('<div class="test-re">Hi Curious 🤡</div>')));
 app.use(reactApp);
 
 export default app;

@@ -10,7 +10,7 @@ module.exports = {
    },
    env: {
       mocha: false,
-      node: false,
+      node: true,
       browser: true,
       commonjs: true,
       es2022: true,
@@ -105,4 +105,5 @@ module.exports = {
       // 'no-return-await': 1,
       // 'no-script-url': 1,
    },
+   extends: ['plugin:security/recommended'],
 };
