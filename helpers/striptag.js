@@ -1,3 +1,3 @@
-const striptag = (htmlString) => String(htmlString).replace(/(<([^>]+)>)/gim, '');
+const striptag = (htmlString) => String(htmlString).replace(/(<([^>]+)>)/gm, '');
 
 export default striptag;

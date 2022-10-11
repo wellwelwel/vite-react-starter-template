@@ -1,7 +1,11 @@
 import safe from 'safe-regex';
 
 const list = [
-   /(<([^>]+)>)/gim,
+   /\.(git|github|vscode|dockerignore|DS_Store|eslintrcjs|gitignore|prettierignore|prettierrc|stackblitzrc)/,
+   /^(bash|docker|node_modules|scripts|src|docker-compose.yml|Dockerfile|vite.config.js|index.html)/,
+   /^package(.+)json$/,
+   /(.+)\.md$/,
+   /(<([^>]+)>)/gm,
    /image\/(.+);/,
    /^([0-9]+)(h|m|s)$/,
    /\.ico$/,
