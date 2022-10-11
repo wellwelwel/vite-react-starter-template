@@ -4,7 +4,6 @@ const list = [
    /\.ico$/,
    /\.(css|json|js)$/,
    /assets/,
-   /((ab)*)+/gim,
 ];
 const errors = [];
 
