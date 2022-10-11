@@ -11,7 +11,7 @@ node_modules
 dist
 dist-ssr
 docker/app
-docker/backup
+docker/backups
 *.local
 
 # Editor directories and files

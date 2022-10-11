@@ -5,10 +5,10 @@
    "version": "0.0.0",
    "type": "module",
    "scripts": {
-      "dev:eject": "rm -rf dist docker/backup",
+      "dev:eject": "rm -rf dist docker/backups",
       "dev:react": "vite --host",
       "dev:stackblitz": "npm run init; npm run server:preview",
-      "docker:backup": "rsync -av --exclude='node_modules' docker/app/ docker/backup/",
+      "docker:backup": "mkdir -p docker/backups && cd docker/backups && tar --exclude='node_modules' -cvzf \"$(date +'%y-%m-%d %T' | sed -e 's/:/-/g').tar.gz\" ../app",
       "docker:compose": "npm run docker:eject &> /dev/null; npm run server:build && node scripts/node/mount.js --force && cd docker && docker-compose up -d",
       "docker:eject": "docker rm react-node-server -f; docker image rm docker-server; rm -rf docker/app",
       "docker:restart": "docker restart react-node-server",
