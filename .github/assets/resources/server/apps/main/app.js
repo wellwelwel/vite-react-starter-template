@@ -3,9 +3,8 @@ import express from 'express';
 import session from 'express-session';
 import bodyParser from 'body-parser';
 import helmet from 'helmet';
-import xss from '../../helpers/xss.js';
 import limiter from '../../configs/limiter.js';
-import reactApp from './routes/reactApp.js';
+import reactApp from '../react/app.js';
 
 dotenv();
 
@@ -15,12 +14,11 @@ const trustedHosts = JSON.parse(process.env.TRUSTED_HOSTS);
 
 app.set('trust proxy', 1);
 
-/* Commented because bug with Stackblitz, uncomment in production */
-// app.use(
-//    helmet({
-//       contentSecurityPolicy: false,
-//    })
-// );
+app.use(
+   helmet({
+      contentSecurityPolicy: false,
+   })
+);
 
 /* Rate Limit */
 app.use((req, res, next) => {
@@ -58,7 +56,6 @@ app.use((req, res, next) => {
 });
 
 /* Routes */
-app.get('/test', (req, res) => res.send(xss('<div class="test-re">Hi Curious 🤡</div>')));
 app.use(reactApp);
 
 export default app;
