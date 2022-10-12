@@ -1,7 +1,10 @@
+import { config as dotenv } from 'dotenv';
 import { resolve } from 'path';
 import fs from 'fs';
 import { EOL } from 'os';
 import { execSync as exec } from 'child_process';
+
+dotenv();
 
 const [, , ...args] = process.argv;
 const force = args.includes('--force');
@@ -26,7 +29,7 @@ const force = args.includes('--force');
    const packageJSON = JSON.parse(fs.readFileSync(resolve('package.json'), 'utf-8'));
 
    // Uninstall React devlopment dependecies
-   const reactDependecies = ['@fvilers/disable-react-devtools', 'react', 'react-dom', 'react-router-dom'];
+   const reactDependecies = JSON.parse(process.env.REACT_DEPENDENCIES);
 
    reactDependecies.forEach((dependency) => {
       if (packageJSON.dependencies.hasOwnProperty(dependency)) delete packageJSON.dependencies[dependency];
