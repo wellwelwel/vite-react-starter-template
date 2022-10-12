@@ -33,6 +33,7 @@
       "express-session": "^1.17.3",
       "helmet": "^6.0.0",
       "html-entities": "^2.3.3",
+      "mysql2": "^2.3.3",
       "react": "^18.2.0",
       "react-dom": "^18.2.0",
       "react-router-dom": "^6.4.2"
