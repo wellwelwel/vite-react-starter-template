@@ -3,6 +3,7 @@ services:
       build: .
       container_name: 'react-node-server'
       working_dir: /usr/app
+      restart: always
       command: pm2-runtime /usr/app/server/index.js --watch
       ports:
          - '127.0.0.1:3000:3000'
