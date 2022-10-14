@@ -8,7 +8,7 @@
       "dev:eject": "rm -rf dist docker/backups",
       "dev:react": "vite --host",
       "dev:stackblitz": "npm run init; npm run server:preview",
-      "docker:backup": "mkdir -p docker/backups && cd docker/backups && tar --exclude='node_modules' -cvzf \"$(date +'%y-%m-%d %T' | sed -e 's/:/-/g').tar.gz\" ../app",
+      "docker:backup": "mkdir -p docker/backups && tar --exclude='backups' --exclude='.DS_Store' --exclude='node_modules' -cvzf \"./docker/backups/$(date +'%y-%m-%d %T' | sed -e 's/:/-/g').tar.gz\" docker/.",
       "docker:compose": "npm run docker:eject &> /dev/null; npm run server:build && npm run docker:mount",
       "docker:eject": "cd docker && docker-compose --env-file ../.env down; rm -rf app",
       "docker:mount": "node scripts/node/mount.js --force && cd docker && docker-compose --env-file ../.env up --build -d",
