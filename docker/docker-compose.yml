@@ -23,7 +23,7 @@ services:
          MYSQL_ROOT_PASSWORD: '${DB_PASS}'
          MYSQL_DATABASE: '${DB_NAME}'
       ports:
-         - '127.0.0.1:${DB_PORT}:${DB_PORT}'
+         - '127.0.0.1:${DB_PORT}:3306'
       volumes:
          - ./db/data:/var/lib/mysql
          - ./db/conf:/etc/mysql/conf.d:ro
