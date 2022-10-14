@@ -1,9 +1,9 @@
 import express from 'express';
 import session from 'express-session';
-import tokenGenerate from '../../helpers/tokenGenerate';
+import tokenGenerate from '#helpers/tokenGenerate';
 import bodyParser from 'body-parser';
-import xss from '../../helpers/xss';
-import setTime from '../../helpers/setTime';
+import xss from '#helpers/xss';
+import setTime from '#helpers/setTime';
 
 const app = express();
 
