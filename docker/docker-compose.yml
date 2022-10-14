@@ -7,6 +7,8 @@ services:
       depends_on:
          - db
       restart: always
+      environment:
+         NODE_ENV: 'production'
       command: pm2-runtime /usr/app/server/index.js --watch
       ports:
          - '127.0.0.1:${PORT}:${PORT}'

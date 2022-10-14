@@ -19,8 +19,8 @@ if (!fs.existsSync('./docker/app')) exec('mkdir -p docker/app');
 
 watcher.on('change', (event, file) => {
    const blacklist = {
-      dot: /\.(git|github|vscode|dockerignore|DS_Store|eslintrcjs|gitignore|prettierignore|prettierrc|stackblitzrc)/,
-      start: /^(bash|node_modules|scripts|src|docker-compose.yml|Dockerfile|vite.config.js|index.html)/,
+      dot: /\.(github|vscode|dockerignore|eslintrcjs|gitignore|prettierignore|prettierrc|stackblitzrc)/,
+      start: /^(bash|node_modules|scripts|src|docker|Dockerfile|vite.config.js|index.html)/,
       type: /(.+)\.md$/,
       custom: /^package(-lock)?\.json$/,
       test: (file) =>
@@ -30,7 +30,7 @@ watcher.on('change', (event, file) => {
          blacklist.custom.test(file),
    };
 
-   if (/^docker\/app/.test(file)) return;
+   if (/^docker\/app|\.(git|DS_Store)/.test(file)) return;
    if (blacklist.test(file)) {
       console.log(`\x1b[1m\x1b[34mIgnoring:\x1b[0m \x1b[2m./${file}\x1b[0m`);
       return;
