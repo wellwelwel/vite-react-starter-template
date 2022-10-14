@@ -1,4 +1,4 @@
-import { s } from 'helpers/selectors';
+import { s } from '#helpers/selectors';
 
 const mimes = {
    gif: 'image/gif',

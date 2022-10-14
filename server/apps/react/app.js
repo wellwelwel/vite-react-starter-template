@@ -1,6 +1,6 @@
 import express from 'express';
 import { resolve } from 'path';
-import limiter from '../../configs/limiter.js';
+import limiter from '#server:configs/limiter';
 
 const router = express.Router();
 

@@ -19,12 +19,12 @@ export default defineConfig({
    },
    resolve: {
       alias: {
-         '@': resolve(__dirname, './src'),
-         assets: resolve(__dirname, './src/assets'),
-         helpers: resolve(__dirname, './helpers'),
-         hooks: resolve(__dirname, './src/hooks'),
-         pages: resolve(__dirname, './src/pages'),
-         utils: resolve(__dirname, './src/utils'),
+         ['#src']: resolve(__dirname, './src'),
+         ['#assets']: resolve(__dirname, './src/assets'),
+         ['#helpers']: resolve(__dirname, './helpers'),
+         ['#hooks']: resolve(__dirname, './src/hooks'),
+         ['#pages']: resolve(__dirname, './src/pages'),
+         ['#utils']: resolve(__dirname, './src/utils'),
       },
    },
 });

@@ -1,6 +1,6 @@
 import { useState, useCallback } from 'react';
 import axios from 'axios';
-import setTime from 'helpers/setTime';
+import setTime from '#helpers/setTime';
 
 const dispatched = {
    focusEvents: [],

@@ -3,7 +3,7 @@ import express from 'express';
 import session from 'express-session';
 import bodyParser from 'body-parser';
 import helmet from 'helmet';
-import limiter from '../../configs/limiter.js';
+import limiter from '#server:configs/limiter';
 import reactApp from '../react/app.js';
 
 dotenv();

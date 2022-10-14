@@ -43,6 +43,7 @@ const force = args.includes('--force');
    const newPackageJSON = {
       dependencies: packageJSON.dependencies,
       type: 'module',
+      imports: packageJSON.imports,
    };
 
    fs.writeFileSync('./docker/app/package.json', JSON.stringify(newPackageJSON, null, 3));

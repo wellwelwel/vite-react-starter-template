@@ -14,8 +14,8 @@ const conteiner = document.getElementById('root');
 const root = createRoot(conteiner);
 
 // Routes
-import HomeRoutes from 'pages/home/Routes';
-import DashboardRoutes from 'pages/dashboard/Routes';
+import HomeRoutes from '#pages/home/Routes';
+import DashboardRoutes from '#pages/dashboard/Routes';
 
 const App = () => (
    <Router>

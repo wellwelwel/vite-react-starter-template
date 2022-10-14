@@ -4,6 +4,7 @@
       "package-lock.json": true,
       ".prettierrc": true,
       ".stackblitzrc": true,
+      "jsconfig.json": true,
       "vite.config.js": true
    }
 }

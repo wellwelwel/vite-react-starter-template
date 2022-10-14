@@ -1,0 +1,14 @@
+{
+   "compilerOptions": {
+      "paths": {
+         "#src/*": ["./src/*"],
+         "#assets/*": ["./src/assets/*"],
+         "#helpers/*": ["./helpers/*.js"],
+         "#hooks/*": ["./src/hooks/*"],
+         "#pages/*": ["./src/pages/*"],
+         "#server/*": ["./server/*"],
+         "#server:configs/*": ["./server/configs/*.js"],
+         "#utils/*": ["./src/utils/*"]
+      }
+   }
+}

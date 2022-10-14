@@ -1,5 +1,5 @@
 import rateLimit from 'express-rate-limit';
-import setTime from '../../helpers/setTime.js';
+import setTime from '#helpers/setTime';
 
 const setLimiter = (times = 100, perMilliseconds = '5s') => {
    return rateLimit({

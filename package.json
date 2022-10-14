@@ -57,5 +57,10 @@
    },
    "browserslist": [
       "> 0%"
-   ]
+   ],
+   "imports": {
+      "#helpers/*": "./helpers/*.js",
+      "#server/*": "./server/*",
+      "#server:configs/*": "./server/configs/*.js"
+   }
 }

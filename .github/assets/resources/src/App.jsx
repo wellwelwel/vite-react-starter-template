@@ -8,7 +8,7 @@ import { disableReactDevTools } from '@fvilers/disable-react-devtools';
 import './assets/scss/main.scss';
 
 // Routes
-import HomeRoutes from './pages/home/Routes';
+import HomeRoutes from '#pages/home/Routes';
 
 // Create root
 const conteiner = document.getElementById('root');
