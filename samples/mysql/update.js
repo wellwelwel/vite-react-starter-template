@@ -32,7 +32,7 @@ import MySQL from '#helpers/mysql'; // npm i mysql2
    // PARAMS: [ 'Jerry', 'Tom' ]
    console.log(way1); // Returns: affectedRows
 
-   // QUERY: "UPDATE `cats` SET `id` = ?, `name` = ? WHERE `id` = ? LIMIT 1; [ 10, 'Jerry', 10 ]"
+   // QUERY: "UPDATE `cats` SET `id` = ?, `name` = ? WHERE `id` = ? LIMIT 1;"
    // PARAMS: [ 10, 'Jerry', 10 ]
    console.log(way2); // Returns: affectedRows
 })();
