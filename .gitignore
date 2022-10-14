@@ -12,6 +12,7 @@ dist
 dist-ssr
 docker/app
 docker/backups
+docker/db/data
 *.local
 
 # Editor directories and files

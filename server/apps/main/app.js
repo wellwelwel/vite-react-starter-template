@@ -1,4 +1,4 @@
-import { config as dotenv } from 'dotenv';
+import 'dotenv/config';
 import express from 'express';
 import session from 'express-session';
 import bodyParser from 'body-parser';
@@ -6,8 +6,6 @@ import helmet from 'helmet';
 import xss from '../../../helpers/xss.js';
 import limiter from '../../configs/limiter.js';
 import reactApp from '../react/app.js';
-
-dotenv();
 
 const app = express();
 const secret = process.env.SESSION_SECRET;

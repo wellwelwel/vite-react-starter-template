@@ -9,7 +9,7 @@ const app = express();
 
 app.use(
    session({
-      secret: '*',
+      secret: tokenGenerate(64),
       cookie: {
          httpOnly: true,
          maxAge: setTime('30m'),
@@ -25,7 +25,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/some-form-page/', (req, res, next) => {
    if (req?.session?.token) next();
    else {
-      req.session.token = tokenGenerate();
+      req.session.token = tokenGenerate(/* Default: 32 */);
       next();
    }
 });

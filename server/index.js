@@ -1,7 +1,5 @@
-import { config as dotenv } from 'dotenv';
+import 'dotenv/config';
 import server from './apps/main/app.js';
-
-dotenv();
 
 (() => {
    const port = process.env.PORT;

@@ -1,11 +1,26 @@
+version: '3.9'
 services:
    server:
       build: .
-      container_name: 'react-node-server'
+      container_name: 'node'
       working_dir: /usr/app
+      depends_on:
+         - db
       restart: always
       command: pm2-runtime /usr/app/server/index.js --watch
       ports:
-         - '127.0.0.1:3000:3000'
+         - '127.0.0.1:${PORT}:${PORT}'
       volumes:
          - ./app:/usr/app:ro
+   db:
+      image: mysql:debian
+      container_name: 'db'
+      restart: always
+      environment:
+         MYSQL_ROOT_PASSWORD: '${DB_PASS}'
+         MYSQL_DATABASE: '${DB_NAME}'
+      ports:
+         - '127.0.0.1:${DB_PORT}:${DB_PORT}'
+      volumes:
+         - ./db/data:/var/lib/mysql
+         - ./db/conf:/etc/mysql/conf.d

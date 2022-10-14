@@ -9,8 +9,8 @@
       "dev:react": "vite --host",
       "dev:stackblitz": "npm run init; npm run server:preview",
       "docker:backup": "mkdir -p docker/backups && cd docker/backups && tar --exclude='node_modules' -cvzf \"$(date +'%y-%m-%d %T' | sed -e 's/:/-/g').tar.gz\" ../app",
-      "docker:compose": "npm run docker:eject &> /dev/null; npm run server:build && node scripts/node/mount.js --force && cd docker && docker-compose up -d",
-      "docker:eject": "docker rm react-node-server -f; docker image rm docker-server; rm -rf docker/app",
+      "docker:compose": "npm run docker:eject &> /dev/null; npm run server:build && node scripts/node/mount.js --force && cd docker && docker-compose --env-file ../.env up -d",
+      "docker:eject": "cd docker && docker-compose --env-file ../.env down; rm -rf app",
       "docker:restart": "docker restart react-node-server",
       "docker:update": "node scripts/node/mount.js",
       "docker:update:build": "npm run server:build && node scripts/node/mount.js",
@@ -49,12 +49,12 @@
       "node-watch": "^0.7.3",
       "nodemon": "^2.0.20",
       "npm-check-updates": "^16.3.11",
-      "postcss": "^8.4.17",
+      "postcss": "^8.4.18",
       "prettier": "^2.7.1",
       "safe-regex": "^2.1.1",
       "sass": "^1.55.0",
       "terser": "^5.15.1",
-      "vite": "^3.1.7"
+      "vite": "^3.1.8"
    },
    "browserslist": [
       "> 0%"

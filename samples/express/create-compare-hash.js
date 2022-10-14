@@ -1,13 +1,13 @@
 import express from 'express';
 import bodyParser from 'body-parser';
-import bcrypt from 'bcrypt';
+import bcrypt from 'bcrypt'; // npm i bcrypt
 
 const app = express();
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.post('/...', async (req, res) => {
+app.post('/some-pass-request', async (req, res) => {
    const plain = req.body.password;
 
    // Create
@@ -18,3 +18,5 @@ app.post('/...', async (req, res) => {
 
    if (!match) res.status(403).send('Forbidden');
 });
+
+app.listen(3000);
