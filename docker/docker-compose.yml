@@ -26,4 +26,4 @@ services:
          - '127.0.0.1:${DB_PORT}:${DB_PORT}'
       volumes:
          - ./db/data:/var/lib/mysql
-         - ./db/conf:/etc/mysql/conf.d
+         - ./db/conf:/etc/mysql/conf.d:ro
