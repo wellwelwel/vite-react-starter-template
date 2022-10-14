@@ -1,4 +1,4 @@
-import MySQL from '../../helpers/mysql.js';
+import MySQL from '../../helpers/mysql.js'; // npm i mysql2
 
 (async () => {
    const mysql = new MySQL();

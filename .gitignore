@@ -13,6 +13,7 @@ dist-ssr
 docker/app
 docker/backups
 docker/db/data
+docker/logs
 *.local
 
 # Editor directories and files

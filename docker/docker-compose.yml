@@ -12,6 +12,7 @@ services:
          - '127.0.0.1:${PORT}:${PORT}'
       volumes:
          - ./app:/usr/app:ro
+         - ./logs:/usr/logs
    db:
       image: mysql:debian
       container_name: 'db'
