@@ -1,16 +1,17 @@
-import { config as dotenv } from 'dotenv';
+import 'dotenv/config';
 import express from 'express';
 import session from 'express-session';
+import memorystore from 'memorystore';
 import bodyParser from 'body-parser';
 import helmet from 'helmet';
+import setTime from '#helpers/setTime';
 import limiter from '#server:configs/limiter';
 import reactApp from '../react/app.js';
-
-dotenv();
 
 const app = express();
 const secret = process.env.SESSION_SECRET;
 const trustedHosts = JSON.parse(process.env.TRUSTED_HOSTS);
+const MemoryStore = memorystore(session);
 
 app.set('trust proxy', 1);
 
@@ -37,8 +38,9 @@ app.use(
       secret: secret,
       cookie: {
          httpOnly: true,
-         maxAge: 1000 * 60 * 30,
+         maxAge: setTime('30m'),
       },
+      store: new MemoryStore({ checkPeriod: setTime('24h') }),
       resave: false,
       saveUninitialized: false,
    })
