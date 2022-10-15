@@ -1,4 +1,4 @@
-import bcrypt from 'bcrypt'; // npm i bcrypt
+import bcrypt from 'bcryptjs'; // npm i bcryptjs
 
 const password = 'pass';
 

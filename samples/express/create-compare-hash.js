@@ -1,6 +1,6 @@
 import express from 'express';
 import bodyParser from 'body-parser';
-import bcrypt from 'bcrypt'; // npm i bcrypt
+import bcrypt from 'bcryptjs'; // npm i bcryptjs
 
 const app = express();
 
