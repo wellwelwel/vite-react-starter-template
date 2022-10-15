@@ -2,8 +2,8 @@ import 'dotenv/config';
 import mysql from 'mysql2/promise';
 
 const login = {
-   host: process.env.DB_HOST,
-   port: process.env.DB_PORT,
+   host: process.env.MYSQL_DOCKER_HOST,
+   port: 3306,
    user: process.env.DB_USER,
    password: process.env.DB_PASS,
    database: process.env.DB_NAME,
@@ -62,6 +62,7 @@ export default class MySQL {
       this.connect = async () => {
          try {
             if (!this?.connection) this.connection = await mysql.createConnection(login);
+            return true;
          } catch (error) {
             this.verbose && console.error(error);
             return false;
@@ -168,6 +169,7 @@ export default class MySQL {
       this.end = async () => {
          try {
             await this.connection.end();
+            return true;
          } catch (error) {
             this.verbose && console.error(error);
             return false;

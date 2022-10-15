@@ -1,20 +1,5 @@
 version: '3.9'
 services:
-   server:
-      build: .
-      container_name: 'node'
-      working_dir: /usr/app
-      depends_on:
-         - db
-      restart: always
-      environment:
-         NODE_ENV: 'production'
-      command: pm2-runtime /usr/app/server/index.js --watch
-      ports:
-         - '127.0.0.1:${PORT}:${PORT}'
-      volumes:
-         - ./app:/usr/app:ro
-         - ./logs:/usr/logs
    db:
       image: mysql:debian
       container_name: 'db'
@@ -22,8 +7,27 @@ services:
       environment:
          MYSQL_ROOT_PASSWORD: '${DB_PASS}'
          MYSQL_DATABASE: '${DB_NAME}'
+      command: --default-authentication-plugin=mysql_native_password
       ports:
          - '127.0.0.1:${DB_PORT}:3306'
       volumes:
          - ./db/data:/var/lib/mysql
          - ./db/conf:/etc/mysql/conf.d:ro
+   server:
+      build: .
+      container_name: 'node'
+      working_dir: /usr/app
+      links:
+         - db # MySQL service name
+      depends_on:
+         - db # MySQL service name
+      restart: always
+      environment:
+         NODE_ENV: 'production'
+         MYSQL_DOCKER_HOST: 'db' # MySQL service name
+      command: pm2-runtime /usr/app/server/index.js --watch
+      ports:
+         - '127.0.0.1:${PORT}:${PORT}'
+      volumes:
+         - ./app:/usr/app:ro
+         - ./logs:/usr/logs
