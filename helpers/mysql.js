@@ -1,9 +1,10 @@
 import 'dotenv/config';
 import mysql from 'mysql2/promise';
 
+const isProduction = process.env.NODE_ENV === 'production';
 const login = {
-   host: process.env.MYSQL_DOCKER_HOST,
-   port: 3306,
+   host: isProduction ? process.env.MYSQL_DOCKER_HOST : '127.0.0.1',
+   port: isProduction ? 3306 : process.env.DB_PORT,
    user: process.env.DB_USER,
    password: process.env.DB_PASS,
    database: process.env.DB_NAME,
