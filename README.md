@@ -12,7 +12,7 @@
 -  Commands
 
    -  `npm run init`, then:
-      -  `npm run dev:react` to start a React + Vite localhost
+      -  `npm run dev:vite` to start a React + Vite localhost
       -  `npm run server:preview` to preview the built project
       -  `npm run server:build` to build the project
       -  `npm run init:clean` to work with a empty Home 🏠
