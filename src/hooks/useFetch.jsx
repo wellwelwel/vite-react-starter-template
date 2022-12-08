@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, startTransition } from 'react';
 import axios from 'axios';
 import setTime from '#helpers/setTime';
 
@@ -18,7 +18,7 @@ const observe = (selector, callback = () => {}) => {
    element && observer.observe(element);
 };
 
-const useFetch = (axiosCreate = {}) => {
+const useFetch = (axiosCreate = {}, deps = []) => {
    const [isFetching, setIsFetching] = useState(true);
    const [data, setData] = useState(null);
    const [error, setError] = useState(false);
@@ -52,52 +52,54 @@ const useFetch = (axiosCreate = {}) => {
 
          if (typeof error === 'object') setIsFetching(true);
 
-         api[options?.method || 'get'](url, options)
-            .then((response) => {
-               if (response.status !== 200) throw new Error(response.status);
-               if (options?.verbose) console.log(response);
+         startTransition(() => {
+            api[options?.method || 'get'](url, options)
+               .then((response) => {
+                  if (response.status !== 200) throw new Error(response.status);
+                  if (options?.verbose) console.log(response);
 
-               setData(response.data);
-               setIsFetching(false);
-               setError(false);
+                  setData(response.data);
+                  setIsFetching(false);
+                  setError(false);
 
-               /* Refetch on Visibility */
-               if (options?.revalidateOnFocus && !dispatched.visibilityEvents.includes(url)) {
-                  dispatched.visibilityEvents.push(url);
-                  window.addEventListener('visibilitychange', refetch);
-               }
+                  /* Refetch on Visibility */
+                  if (options?.revalidateOnFocus && !dispatched.visibilityEvents.includes(url)) {
+                     dispatched.visibilityEvents.push(url);
+                     window.addEventListener('visibilitychange', refetch);
+                  }
 
-               /* Refetch on Focus */
-               if (options?.revalidateOnFocus && !dispatched.focusEvents.includes(url)) {
-                  dispatched.focusEvents.push(url);
-                  window.addEventListener('focus', refetch);
-               }
+                  /* Refetch on Focus */
+                  if (options?.revalidateOnFocus && !dispatched.focusEvents.includes(url)) {
+                     dispatched.focusEvents.push(url);
+                     window.addEventListener('focus', refetch);
+                  }
 
-               /* Refech every... */
-               if (options?.refetchAtEvery && !dispatched.intervals.includes(url)) {
-                  const timer = setTime(options.refetchAtEvery);
+                  /* Refech every... */
+                  if (options?.refetchAtEvery && !dispatched.intervals.includes(url)) {
+                     const timer = setTime(options.refetchAtEvery);
 
-                  dispatched.intervals.push(url);
-                  setInterval(refetch, timer);
-               }
-            })
-            .catch((error) => {
-               if (options?.verbose) console.log(error);
+                     dispatched.intervals.push(url);
+                     setInterval(refetch, timer);
+                  }
+               })
+               .catch((error) => {
+                  if (options?.verbose) console.log(error);
 
-               setData(null);
-               setIsFetching(false);
-               if (error.request.status !== 200) setError({ message: error.request.status });
-               else setError(error);
-            })
-            .finally(() => {
-               const timer = options?.minInterval ? setTime(options.minInterval) : 1000;
+                  setData(null);
+                  setIsFetching(false);
+                  if (error.request.status !== 200) setError({ message: error.request.status });
+                  else setError(error);
+               })
+               .finally(() => {
+                  const timer = options?.minInterval ? setTime(options.minInterval) : 1000;
 
-               setTimeout(() => {
-                  isBusy = false;
-               }, timer);
-            });
+                  setTimeout(() => {
+                     isBusy = false;
+                  }, timer);
+               });
+         });
       },
-      []
+      deps
    );
 
    return { data, error, isFetching, request };

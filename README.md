@@ -147,7 +147,14 @@
          baseURL: 'https://jsonplaceholder.typicode.com',
          timeout: 10000,
       };
-      const { request, isFetching, data, error } = useFetch(axiosCreate);
+      const {
+         request,
+         isFetching,
+         data: post,
+         error,
+      } = useFetch(axiosCreate, [
+         /* deps */
+      ]);
 
       useEffect(() => {
          (() => {
@@ -168,7 +175,7 @@
          <span id='#request'>
             {isFetching && 'Loading...'}
             {error && error.message}
-            {data && 'Success'}
+            {post && 'Success'}
          </span>
       );
    };
