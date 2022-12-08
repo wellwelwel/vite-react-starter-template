@@ -13,18 +13,30 @@ services:
       volumes:
          - ./db/data:/var/lib/mysql
          - ./db/conf:/etc/mysql/conf.d:ro
+   session:
+      image: redis:alpine
+      container_name: 'session'
+      restart: always
+      ports:
+         - '127.0.0.1:${REDIS_PORT}:6379'
+      comand: redis-server --requirepass "${REDIS_PASS}"
+      volumes:
+         - ./session/data:/data
    server:
       build: .
       container_name: 'node'
       working_dir: /usr/app
       links:
          - db # MySQL service name
+         - session # Redis service name
       depends_on:
          - db # MySQL service name
+         - session # Redis service name
       restart: always
       environment:
          NODE_ENV: 'production'
          MYSQL_DOCKER_HOST: 'db' # MySQL service name
+         REDIS_DOCKER_HOST: 'session' # Redis service name
       command: pm2-runtime /usr/app/server/index.js --watch
       ports:
          - '127.0.0.1:${PORT}:${PORT}'

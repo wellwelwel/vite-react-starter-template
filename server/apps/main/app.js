@@ -2,8 +2,10 @@ import 'dotenv/config';
 import express from 'express';
 import session from 'express-session';
 import memorystore from 'memorystore';
+// import connectRedis from 'connect-redis';
+// import redisClient from '#server/configs/redis';
+// import helmet from 'helmet';
 import bodyParser from 'body-parser';
-import helmet from 'helmet';
 import xss from '#helpers/xss';
 import setTime from '#helpers/setTime';
 import limiter from '#server:configs/limiter';
@@ -13,6 +15,7 @@ const app = express();
 const secret = process.env.SESSION_SECRET;
 const trustedHosts = JSON.parse(process.env.TRUSTED_HOSTS);
 const MemoryStore = memorystore(session);
+// const RedisStore = connectRedis(session);
 
 app.set('trust proxy', 1);
 
@@ -43,8 +46,9 @@ app.use(
          maxAge: setTime('30m'),
       },
       store: new MemoryStore({ checkPeriod: setTime('24h') }),
+      // store: new RedisStore({ client: redisClient }),
       resave: false,
-      saveUninitialized: false,
+      saveUninitialized: true,
    })
 );
 
