@@ -29,14 +29,12 @@ const App = () => (
 );
 
 if (isProduction) {
-   console.log('🖥 Running in Production Environment');
    disableReactDevTools();
-   root.render(
-      <React.StrictMode>
-         <App />
-      </React.StrictMode>
-   );
-} else {
-   console.log('🔬 Running in Development Environment');
-   root.render(<App />);
-}
+   console.log('🖥 Running in Production Environment');
+} else console.log('🔬 Running in Development Environment');
+
+root.render(
+   <React.StrictMode>
+      <App />
+   </React.StrictMode>
+);
