@@ -1,20 +1,64 @@
 import 'dotenv/config';
-import server from './apps/main/app.js';
+import express from 'express';
+import compression from 'compression';
+import setTime from '#helpers/setTime';
+import session from 'express-session';
+// import connectRedis from 'connect-redis';
+// import redisClient from '#server:configs/redis';
+import memorystore from 'memorystore';
+// import mysql from '#server:configs/mysql';
+import cors from 'cors';
+import bodyParser from 'body-parser';
+
+// Routes
+import api from './apps/api/app.js';
+import react from './apps/react/app.js';
 
 (() => {
+   const server = express();
    const port = process.env.PORT;
-   const hosts = JSON.parse(process.env.TRUSTED_HOSTS).map((host) => `    ➜ \x1b[34mhttp://${host}:${port}/\x1b[0m`);
+   const secret = process.env.SESSION_SECRET;
+   const trustedDomains = [`http://localhost:${port}`, `http://localhost:5173`];
+   const MemoryStore = memorystore(session);
+   // const RedisStore = connectRedis(session);
+
+   server.set('trust proxy', 1);
+
+   server.use(compression());
+
+   server.use(
+      session({
+         secret: secret,
+         cookie: {
+            httpOnly: true,
+            maxAge: setTime('30m'),
+            // secure: true,
+         },
+         store: new MemoryStore({ checkPeriod: setTime('24h') }),
+         // store: new RedisStore({ client: redisClient }),
+         resave: false,
+         saveUninitialized: true,
+      })
+   );
+
+   server.use(cors({ origin: trustedDomains, credentials: true }));
+
+   // Request parser
+   server.use(bodyParser.json());
+   server.use(bodyParser.urlencoded({ extended: true }));
+
+   // Apps
+   server.use(api);
+   server.use(react);
 
    server.listen(port, () => {
       console.log(
          [
-            `\n\n`,
-            `\x1b[0m\x1b[1mExpress \x1b[32m+\x1b[0m\x1b[1m Nodemon\x1b[0m`,
-            `\n\n`,
+            `\n`,
             `  \x1b[1m🚀  Listening\x1b[0m in:`,
             `\n\n`,
-            hosts.join('\n'),
-            `\n\n`,
+            `    ➜ \x1b[34mhttp://localhost:${port}/\x1b[0m`,
+            `\n`,
          ].join('')
       );
    });
