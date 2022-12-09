@@ -6,10 +6,12 @@ import Dashboard from './components/Dashboard';
 
 const Layout = () => import('./Layout');
 
-const Routes = (
-   <Route element={doLazy(Layout)}>
-      <Route path='/dashboard' element={<Dashboard />} />
-   </Route>
-);
+const Routes = () => {
+   return (
+      <Route element={doLazy(Layout)}>
+         <Route path='/dashboard' element={<Dashboard />} />
+      </Route>
+   );
+};
 
 export default Routes;

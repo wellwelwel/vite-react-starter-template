@@ -21,8 +21,8 @@ const App = () => (
    <Storage>
       <Router>
          <Routes>
-            {HomeRoutes}
-            {DashboardRoutes}
+            {HomeRoutes()}
+            {DashboardRoutes()}
          </Routes>
       </Router>
    </Storage>
