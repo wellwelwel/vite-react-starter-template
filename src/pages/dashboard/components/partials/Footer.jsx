@@ -1,16 +1,16 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import useFetch from '#hooks/useFetch';
 
 const Footer = () => {
-   const mount = { onceEffect: true };
+   const mount = { onceEffect: useRef(true) };
    const { request, isFetching, data, error } = useFetch();
 
    useEffect(() => {
-      if (!mount.onceEffect) return;
+      if (!mount.onceEffect.current) return;
 
       request('https://jsonplaceholder.typicode.com/posts/2');
 
-      return () => (mount.onceEffect = false);
+      return () => (mount.onceEffect.current = false);
    }, []);
 
    return (

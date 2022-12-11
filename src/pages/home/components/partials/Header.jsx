@@ -1,13 +1,13 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import useFetch from '#hooks/useFetch';
 
 const Header = () => {
-   const mount = { onceEffect: true };
+   const mount = { onceEffect: useRef(true) };
    const axiosCreate = { baseURL: 'https://jsonplaceholder.typicode.com', timeout: 10000 };
    const { request, isFetching, data, error } = useFetch(axiosCreate);
 
    useEffect(() => {
-      if (!mount.onceEffect) return;
+      if (!mount.onceEffect.current) return;
 
       const options = {
          method: 'get', // default: get
@@ -20,7 +20,7 @@ const Header = () => {
 
       request('posts/1', options);
 
-      return () => (mount.onceEffect = false);
+      return () => (mount.onceEffect.current = false);
    }, []);
 
    return (
