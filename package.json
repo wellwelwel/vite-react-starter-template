@@ -18,7 +18,7 @@
       "docker:watch": "node scripts/node/watch.js",
       "init": "npm i --ignore-scripts; npm run init:update",
       "init:clean": "npm run init; sh scripts/bash/clean.sh",
-      "init:update": "npx ncu -u; npm i --ignore-scripts",
+      "init:update": "npx npu; npm i --ignore-scripts",
       "server:build": "vite build",
       "server:listen": "nodemon --delay 1 --watch server --watch .env --watch helpers server",
       "server:preview": "npm run server:build && npm run server:listen",
