@@ -39,6 +39,7 @@
       "html-entities": "^2.3.3",
       "ioredis": "^5.2.4",
       "memorystore": "^1.6.7",
+      "node-and-vite-helpers": "^0.1.18",
       "react": "^18.2.0",
       "react-dom": "^18.2.0",
       "react-router-dom": "^6.4.5"
