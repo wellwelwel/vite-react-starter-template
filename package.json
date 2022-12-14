@@ -7,7 +7,7 @@
    "scripts": {
       "dev:eject": "rm -rf dist docker/backups",
       "dev:vite": "vite --host",
-      "dev:stackblitz": "npm run init; npm run server:preview",
+      "dev:stackblitz": "npm i --ignore-scripts; npm run server:preview",
       "docker:backup": "mkdir -p docker/backups && tar --exclude='backups' --exclude='.DS_Store' --exclude='node_modules' -cvzf \"./docker/backups/$(date +'%y-%m-%d %T' | sed -e 's/:/-/g').tar.gz\" docker/.",
       "docker:compose": "npm run docker:eject &> /dev/null; npm run server:build && node scripts/node/mount.js --force && npm run docker:mount",
       "docker:eject": "cd docker && docker-compose --env-file ../.env down; rm -rf app",
