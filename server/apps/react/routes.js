@@ -1,6 +1,6 @@
 import express from 'express';
 import { resolve } from 'path';
-import setTime from '#helpers/setTime';
+import { setTime } from 'node-and-vite-helpers';
 
 const router = express.Router();
 

@@ -1,7 +1,7 @@
 import 'dotenv/config';
 import express from 'express';
 import compression from 'compression';
-import setTime from '#helpers/setTime';
+import { setTime } from 'node-and-vite-helpers';
 import session from 'express-session';
 // import connectRedis from 'connect-redis';
 // import redisClient from '#server:configs/redis';

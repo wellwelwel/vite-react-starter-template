@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import head from '#helpers/head';
+import { head } from 'node-and-vite-helpers';
 
 const Errors = () => {
    head.title('404 | React Basic Starter');

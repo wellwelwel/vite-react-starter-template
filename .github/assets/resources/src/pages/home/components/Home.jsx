@@ -1,5 +1,5 @@
 import React from 'react';
-import * as head from '#helpers/head';
+import { head } from 'node-and-vite-helpers';
 
 const Home = () => {
    head.title('Home');

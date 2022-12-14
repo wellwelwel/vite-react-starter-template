@@ -1,5 +1,5 @@
 import React, { createContext } from 'react';
-import cx from '#helpers/doClass';
+import { cx } from 'node-and-vite-helpers';
 
 import useLoading from '#hooks/useLoading';
 import useAlert from '#hooks/useAlert';

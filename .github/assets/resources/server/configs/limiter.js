@@ -1,5 +1,5 @@
 import rateLimit from 'express-rate-limit';
-import setTime from '#helpers/setTime';
+import { setTime } from 'node-and-vite-helpers';
 
 const setLimiter = (times = 100, perMilliseconds = '5s') => {
    return rateLimit({

@@ -1,6 +1,6 @@
 import { useState, useCallback, startTransition } from 'react';
 import axios from 'axios';
-import setTime from '#helpers/setTime';
+import { setTime } from 'node-and-vite-helpers';
 
 const dispatched = {
    focusEvents: [],
