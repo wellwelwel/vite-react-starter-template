@@ -37,11 +37,11 @@
       "express-session": "^1.17.3",
       "helmet": "^6.0.1",
       "ioredis": "^5.2.4",
-      "mysql2-orm": "^1.0.3",
+      "mysql2-orm": "^1.1.1",
       "node-and-vite-helpers": "^1.0.0",
       "react": "^18.2.0",
       "react-dom": "^18.2.0",
-      "react-router-dom": "^6.4.5"
+      "react-router-dom": "^6.5.0"
    },
    "devDependencies": {
       "@types/react": "^18.0.26",
@@ -56,9 +56,9 @@
       "postcss": "^8.4.20",
       "prettier": "^2.8.1",
       "safe-regex": "^2.1.1",
-      "sass": "^1.56.2",
+      "sass": "^1.57.0",
       "terser": "^5.16.1",
-      "vite": "^4.0.1"
+      "vite": "^4.0.2"
    },
    "browserslist": [
       "> 0%"
