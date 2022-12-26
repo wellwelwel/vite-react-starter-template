@@ -1,14 +1,12 @@
 {
    "compilerOptions": {
       "paths": {
-         "#src/*": ["./src/*"],
-         "#assets/*": ["./src/assets/*"],
-         "#helpers/*": ["./helpers/*.js"],
-         "#hooks/*": ["./src/hooks/*"],
-         "#pages/*": ["./src/pages/*"],
-         "#server/*": ["./server/*"],
-         "#server:configs/*": ["./server/configs/*.js"],
-         "#utils/*": ["./src/utils/*"]
+         "#public/*": ["./src/frontend/public/*"],
+         "#assets/*": ["./src/frontend/public/assets/*"],
+         "#helpers/*": ["./src/helpers/*.js"],
+         "#hooks/*": ["./src/frontend/public/hooks/*"],
+         "#pages/*": ["./src/frontend/public/pages/*"],
+         "#utils/*": ["./src/frontend/public/utils/*"]
       }
    }
 }

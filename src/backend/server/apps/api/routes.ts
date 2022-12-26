@@ -1,6 +1,12 @@
 import express from 'express';
 import { setTime } from 'node-and-vite-helpers';
 
+declare module 'express-session' {
+   export interface SessionData {
+      expires: Date;
+   }
+}
+
 const router = express.Router();
 
 // Middleware

@@ -4,8 +4,8 @@ import compression from 'compression';
 import { setTime } from 'node-and-vite-helpers';
 import session from 'express-session';
 // import connectRedis from 'connect-redis';
-// import redisClient from '#server:configs/redis';
-// import mysql from '#server:configs/mysql';
+// import redisClient from './configs/redis';
+// import mysql from './configs/mysql';
 import cors from 'cors';
 import bodyParser from 'body-parser';
 
@@ -16,7 +16,7 @@ import react from './apps/react/app.js';
 (() => {
    const server = express();
    const port = process.env.PORT;
-   const secret = process.env.SESSION_SECRET;
+   const secret = process.env?.SESSION_SECRET || '';
    const trustedDomains = [`http://localhost:${port}`, `http://localhost:5173`];
    // const RedisStore = connectRedis(session);
 

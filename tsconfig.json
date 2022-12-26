@@ -1,0 +1,28 @@
+{
+   "include": ["src/backend/server", "src/helpers"],
+   "exclude": ["node_modules"],
+   "compilerOptions": {
+      "target": "ESNext",
+      "module": "ESNext",
+      "moduleResolution": "Node",
+
+      "resolveJsonModule": true,
+      "isolatedModules": true,
+      "esModuleInterop": true,
+      "allowSyntheticDefaultImports": true,
+
+      "allowJs": false,
+      "strict": true,
+      "alwaysStrict": true,
+      "strictFunctionTypes": false,
+      "noUnusedLocals": true,
+      "noImplicitAny": true,
+
+      "removeComments": true,
+      "sourceMap": false,
+      "declaration": false,
+
+      // "declarationDir": "./server",
+      "outDir": "./dist/backend/server"
+   }
+}

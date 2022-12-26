@@ -6,6 +6,9 @@ import cssnano from 'cssnano';
 import { resolve } from 'path';
 
 export default defineConfig({
+   build: {
+      outDir: resolve('./dist/frontend/public'),
+   },
    plugins: [
       react(),
       legacy({
@@ -19,12 +22,12 @@ export default defineConfig({
    },
    resolve: {
       alias: {
-         ['#src']: resolve(__dirname, './src'),
-         ['#assets']: resolve(__dirname, './src/assets'),
-         ['#helpers']: resolve(__dirname, './helpers'),
-         ['#hooks']: resolve(__dirname, './src/hooks'),
-         ['#pages']: resolve(__dirname, './src/pages'),
-         ['#utils']: resolve(__dirname, './src/utils'),
+         ['#public']: resolve(__dirname, './src/frontend/public'),
+         ['#assets']: resolve(__dirname, './src/frontend/public/assets'),
+         ['#helpers']: resolve(__dirname, './src/helpers'),
+         ['#hooks']: resolve(__dirname, './src/frontend/public/hooks'),
+         ['#pages']: resolve(__dirname, './src/frontend/public/pages'),
+         ['#utils']: resolve(__dirname, './src/frontend/public/utils'),
       },
    },
 });
