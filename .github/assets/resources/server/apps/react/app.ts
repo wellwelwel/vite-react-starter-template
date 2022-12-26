@@ -1,20 +1,8 @@
 import express from 'express';
-import helmet from 'helmet';
 import limiter from '../../configs/limiter.js';
 import router from './routes.js';
 
 const app = express();
-
-// Security
-app.use(
-   helmet.contentSecurityPolicy({
-      useDefaults: true,
-      directives: {
-         // Fixing Vite bug in Production using React Strict Mode 😒
-         'script-src': ["'self'", "'unsafe-inline'"],
-      },
-   })
-);
 
 // Rate Limit
 app.use((req, res, next) => {

@@ -2,41 +2,83 @@ import 'dotenv/config';
 import express from 'express';
 import compression from 'compression';
 import { setTime } from 'node-and-vite-helpers';
+import helmet from 'helmet';
 import session from 'express-session';
-// import connectRedis from 'connect-redis';
-// import redisClient from './configs/redis';
-// import mysql from './configs/mysql';
 import cors from 'cors';
 import bodyParser from 'body-parser';
+import connectRedis from 'connect-redis';
 
 // Routes
 import api from './apps/api/app.js';
 import react from './apps/react/app.js';
 
-(() => {
+(async () => {
    const server = express();
    const port = process.env?.PORT || 3000;
    const secret = process.env?.SESSION_SECRET || '';
    const trustedDomains = [`http://localhost:${port}`, `http://localhost:5173`];
-   // const RedisStore = connectRedis(session);
+   const isStackBlitz = /gkypjp/.test(process.cwd());
+   const isProduction = process.env.NODE_ENV === 'production';
 
+   // Security
    server.set('trust proxy', 1);
 
-   server.use(compression());
+   if (!isStackBlitz) {
+      const redisClient = (await import('./configs/redis.js')).default;
+      const mysql = (await import('./configs/mysql.js')).default;
 
-   server.use(
-      session({
-         secret: secret,
-         cookie: {
-            httpOnly: true,
-            maxAge: setTime('30m'),
-            // secure: true,
-         },
-         // store: new RedisStore({ client: redisClient }),
-         resave: false,
-         saveUninitialized: true,
-      })
-   );
+      const RedisStore = connectRedis(session);
+
+      server.use(helmet());
+      server.use(
+         helmet.contentSecurityPolicy({
+            directives: {
+               defaultSrc: ["'self'"],
+               scriptSrc: ["'self'", "'unsafe-inline'"],
+               connectSrc: ["'self'", 'jsonplaceholder.typicode.com'],
+               styleSrc: ["'self'", 'fonts.googleapis.com'],
+               imgSrc: ["'self'"],
+            },
+         })
+      );
+
+      server.use(
+         session({
+            secret: secret,
+            cookie: {
+               httpOnly: true,
+               maxAge: setTime('30m'),
+               // secure: true,
+            },
+            store: new RedisStore({ client: redisClient }),
+            resave: false,
+            saveUninitialized: true,
+         })
+      );
+
+      !isProduction && (mysql.verbose = true);
+
+      console.log(
+         await mysql.select({
+            table: 'pokemons',
+         })
+      );
+   } else {
+      server.use(
+         session({
+            secret: secret,
+            cookie: {
+               httpOnly: true,
+               maxAge: setTime('30m'),
+               secure: true,
+            },
+            resave: false,
+            saveUninitialized: true,
+         })
+      );
+   }
+
+   server.use(compression());
 
    server.use(cors({ origin: trustedDomains, credentials: true }));
 
