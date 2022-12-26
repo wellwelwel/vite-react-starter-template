@@ -19,6 +19,7 @@ tests
 docker-compose.yml
 Dockerfile
 vite.config.js
+tsconfig.json
 
 /index.html
 *.md

@@ -35,11 +35,11 @@ services:
       restart: always
       environment:
          NODE_ENV: 'production'
-         MYSQL_DOCKER_HOST: 'db' # MySQL service name
-         REDIS_DOCKER_HOST: 'session' # Redis service name
-      command: pm2-runtime /usr/app/server/index.js --watch
+         DB_HOST: 'db' # MySQL service name
+         REDIS_HOST: 'session' # Redis service name
+      command: pm2-runtime /usr/app/dist/backend/server/index.js --watch
       ports:
-         - '127.0.0.1:${PORT}:${PORT}'
+         - '127.0.0.1:${DOCKER_PORT}:${PORT}'
       volumes:
          - ./app:/usr/app:ro
          - ./logs:/usr/logs

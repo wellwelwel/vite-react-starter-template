@@ -1,10 +1,8 @@
-import { config as dotenv } from 'dotenv';
+import 'dotenv/config';
 import { resolve } from 'path';
 import fs from 'fs';
 import { EOL } from 'os';
 import { execSync as exec } from 'child_process';
-
-dotenv();
 
 const [, , ...args] = process.argv;
 const force = args.includes('--force');

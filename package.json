@@ -13,9 +13,6 @@
       "docker:eject": "cd docker && docker-compose --env-file ../.env down; rm -rf app",
       "docker:mount": "cd docker && docker-compose --env-file ../.env up -d",
       "docker:restart": "docker restart react-node-server",
-      "docker:update": "node scripts/node/mount.js",
-      "docker:update:build": "npm run server:build && node scripts/node/mount.js",
-      "docker:watch": "node scripts/node/watch.js",
       "init": "npm i --ignore-scripts; npm run update",
       "init:clean": "npm run init; sh scripts/bash/clean.sh",
       "update": "npx npu; npm i --ignore-scripts",
@@ -40,7 +37,7 @@
       "helmet": "^6.0.1",
       "ioredis": "^5.2.4",
       "mysql2-orm": "^2.0.0",
-      "node-and-vite-helpers": "^2.0.1",
+      "node-and-vite-helpers": "^2.0.2",
       "react": "^18.2.0",
       "react-dom": "^18.2.0",
       "react-router-dom": "^6.6.1"

@@ -15,7 +15,7 @@ import react from './apps/react/app.js';
 
 (() => {
    const server = express();
-   const port = process.env.PORT;
+   const port = process.env?.PORT || 3000;
    const secret = process.env?.SESSION_SECRET || '';
    const trustedDomains = [`http://localhost:${port}`, `http://localhost:5173`];
    // const RedisStore = connectRedis(session);
