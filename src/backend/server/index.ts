@@ -57,12 +57,6 @@ import react from './apps/react/app.js';
       );
 
       !isProduction && (mysql.verbose = true);
-
-      console.log(
-         await mysql.select({
-            table: 'pokemons',
-         })
-      );
    } else {
       server.use(
          session({

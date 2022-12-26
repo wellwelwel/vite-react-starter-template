@@ -8,9 +8,11 @@ import strip from '@rollup/plugin-strip';
 import { babel } from '@rollup/plugin-babel';
 import terser from '@rollup/plugin-terser';
 
+const input = 'src/backend/server/index.ts';
+
 export default {
    external: ['mysql2/promise', 'ioredis'],
-   input: 'src/backend/server/index.ts',
+   input,
    plugins: [
       typescript({
          tsconfig: './tsconfig.json',
@@ -19,6 +21,7 @@ export default {
       json({ compact: true }),
       nodeResolve(),
       strip({
+         include: [input],
          labels: ['unittest'],
       }),
       babel({
