@@ -32,7 +32,7 @@ import react from './apps/react/app.js';
             scriptSrc: ["'self'", "'unsafe-inline'"],
             connectSrc: ["'self'"],
             styleSrc: ["'self'", 'fonts.googleapis.com'],
-            imgSrc: ["'self'"],
+            imgSrc: ["'self'", 'data:'],
          },
       })
    );
