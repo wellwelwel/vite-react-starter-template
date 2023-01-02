@@ -67,7 +67,7 @@
       "packages-update": "^1.2.1",
       "postcss": "^8.4.20",
       "prettier": "^2.8.1",
-      "rollup": "^3.9.0",
+      "rollup": "^3.9.1",
       "safe-regex": "^2.1.1",
       "sass": "^1.57.1",
       "terser": "^5.16.1",
