@@ -5,7 +5,7 @@
       ".prettierrc": true,
       ".stackblitzrc": true,
       "jsconfig.json": true,
-      "vite.config.ts": true,
+      // "vite.config.ts": true,
       "tsconfig.json": true
    }
 }
