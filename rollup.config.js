@@ -1,16 +1,16 @@
 // @ts-check
 
+import { defineConfig } from 'rollup';
 import typescript from '@rollup/plugin-typescript';
 import commonjs from '@rollup/plugin-commonjs';
 import json from '@rollup/plugin-json';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
-import strip from '@rollup/plugin-strip';
 import { babel } from '@rollup/plugin-babel';
 import terser from '@rollup/plugin-terser';
 
 const input = 'src/backend/server/index.ts';
 
-export default {
+export default defineConfig({
    external: ['mysql2/promise', 'ioredis'],
    input,
    plugins: [
@@ -20,10 +20,6 @@ export default {
       commonjs(),
       json({ compact: true }),
       nodeResolve(),
-      strip({
-         include: [input],
-         labels: ['unittest'],
-      }),
       babel({
          babelHelpers: 'inline',
          presets: ['@babel/preset-env'],
@@ -41,4 +37,4 @@ export default {
       format: 'es',
       inlineDynamicImports: true,
    },
-};
+});
